@@ -43,7 +43,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-const sections = document.querySelectorAll("section[id]");
+const sections = document.querySelectorAll("section[id], footer[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll", () => {
