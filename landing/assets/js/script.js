@@ -111,12 +111,12 @@ let touchEndX = 0;
 
 carousel.addEventListener("touchstart", (e) => {
   touchStartX = e.changedTouches[0].screenX;
-});
+}, { passive: true });
 
 carousel.addEventListener("touchend", (e) => {
   touchEndX = e.changedTouches[0].screenX;
   handleSwipe();
-});
+}, { passive: true });
 
 function handleSwipe() {
   const swipeThreshold = 50;
