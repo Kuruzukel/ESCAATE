@@ -334,7 +334,8 @@
         width: calc(100% - 2rem);
         max-width: 1200px;
         z-index: 1000;
-        background: rgba(22, 56, 86, 0.9);
+        background: white;
+        color: #000000;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(54, 145, 191, 0.2);
@@ -345,7 +346,8 @@
       }
 
       .navbar.scrolled {
-        background: rgba(22, 56, 86, 0.95);
+        background: white;
+        color: #000000;
         box-shadow: 0 10px 40px rgba(22, 56, 86, 0.4);
       }
 
@@ -360,13 +362,16 @@
         align-items: center;
         gap: 0.75rem;
         text-decoration: none;
+        height: 40px;
+        flex-shrink: 0;
       }
 
       .navbar-logo img,
       .navbar-logo-img {
-        height: 40px;
+        height: 70px;
         width: auto;
         object-fit: contain;
+        flex-shrink: 0;
       }
 
       .footer-logo-img {
@@ -379,7 +384,7 @@
       .navbar-logo-text {
         font-size: 1.25rem;
         font-weight: 700;
-        color: var(--white);
+        color: #000000;
       }
 
       .navbar-logo-text span {
@@ -396,7 +401,7 @@
         padding: 0.625rem 1.25rem;
         font-size: 0.9375rem;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.8);
+        color: #000000;
         text-decoration: none;
         border-radius: var(--border-radius-pill);
         transition: all var(--transition-fast);
@@ -404,7 +409,7 @@
 
       .nav-link:hover,
       .nav-link.active {
-        color: var(--white);
+        color: #000000;
         background: rgba(54, 145, 191, 0.2);
       }
 
@@ -420,14 +425,14 @@
       }
 
       .navbar-actions .btn-outline {
-        color: var(--white);
-        border-color: rgba(255, 255, 255, 0.3);
+        color: #000000;
+        border-color: rgba(54, 145, 191, 0.3);
       }
 
       .navbar-actions .btn-outline:hover {
-        background: var(--white);
+        background:  rgba(54, 145, 191, 0.3);
         color: var(--dark-azure);
-        border-color: var(--white);
+         border-color: rgba(54, 145, 191, 0.3);
       }
 
       /* Mobile Menu Toggle */
@@ -437,7 +442,7 @@
         border: none;
         padding: 0.5rem;
         cursor: pointer;
-        color: var(--white);
+        color: #000000;
         font-size: 1.5rem;
       }
 
@@ -1455,7 +1460,7 @@
     <nav class="navbar" id="navbar">
       <div class="navbar-content">
         <a href="#home" class="navbar-logo">
-          <img src="img/CAATELOGOROUNDED.png" alt="CAATE Logo" class="navbar-logo-img">
+          <img src="img/ROUNDCAATELOGO.png" alt="CAATE Logo" class="navbar-logo-img">
         </a>
 
         <div class="navbar-nav">
