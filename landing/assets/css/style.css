@@ -762,7 +762,7 @@ h6 {
 }
 
 .course-card {
-  flex: 0 0 350px;
+  flex: 0 0 290px;
   scroll-snap-align: start;
   padding: 0;
   overflow: hidden;
@@ -867,7 +867,6 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2.5rem;
 }
 
 .carousel-btn {
@@ -876,28 +875,23 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue),
-    var(--primary-blue-dark)
-  );
-  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   color: var(--white);
   font-size: 1.375rem;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 32px rgba(22, 56, 86, 0.15);
 }
 
 .carousel-btn:hover {
   transform: scale(1.1);
-  box-shadow: var(--shadow-lg);
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue-dark),
-    var(--primary-blue)
-  );
+  box-shadow: 0 12px 40px rgba(22, 56, 86, 0.25);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .carousel-btn:active {
