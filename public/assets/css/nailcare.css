@@ -7,9 +7,12 @@
     min-height: 70vh;
     display: flex;
     align-items: center;
-    padding: 10rem 0 6rem;
+    padding: 10rem 0 7rem;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--dark-azure) 0%, var(--darker-azure) 100%);
+    background:
+        var(--white) linear-gradient(rgba(54, 145, 191, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(54, 145, 191, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
 }
 
 .course-hero::before {
@@ -48,13 +51,13 @@
 .course-badge {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: rgba(54, 145, 191, 0.2);
+    background: rgba(54, 145, 191, 0.15);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(54, 145, 191, 0.3);
+    border: 1px solid rgba(54, 145, 191, 0.4);
     border-radius: var(--border-radius-pill);
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--primary-blue);
+    color: var(--primary-blue-dark);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -63,14 +66,14 @@
 .course-hero-title {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--white);
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
 .course-hero-description {
     font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-medium);
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -87,8 +90,9 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .meta-item i {
@@ -155,4 +159,38 @@
     .navbar-center-text {
         display: none;
     }
+}
+
+
+/* Download Brochure Button Override */
+.course-hero-buttons .btn-outline-light {
+    background: transparent;
+    color: var(--primary-blue-dark);
+    border: 2px solid var(--primary-blue);
+}
+
+.course-hero-buttons .btn-outline-light:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+/* Co
+urse Hero Lower Curl */
+.main-course-hero-lower-curl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main-course-hero-lower-curl svg {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
