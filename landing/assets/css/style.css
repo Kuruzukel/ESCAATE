@@ -443,7 +443,15 @@ h6 {
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(22, 56, 86, 0.8), rgba(18, 57, 90, 0.8)),
-    url("/../../img/CAATEBGEDITED.png") center/cover no-repeat;
+    url("/../../img/CAATEBGFINAL.png") center/cover no-repeat;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
 }
 
 .hero-content {
@@ -485,7 +493,7 @@ h6 {
 .hero-description {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   max-width: 600px;
 }
 
@@ -493,6 +501,38 @@ h6 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.hero-logos {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-logo {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  transition: all var(--transition-normal);
+  border-radius: var(--border-radius-lg);
+}
+
+.hero-logo:hover {
+  transform: scale(1.08);
+  filter: brightness(1.2) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
+  border-radius: var(--border-radius-lg);
 }
 
 .hero-image {
@@ -1294,6 +1334,25 @@ h6 {
 }
 
 @media (max-width: 1024px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-logos {
+    order: -1;
+    flex-direction: row;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .hero-logo {
+    width: 120px;
+  }
+
   .hero-image {
     display: none;
   }
