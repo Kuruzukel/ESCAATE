@@ -761,6 +761,33 @@ h6 {
   scroll-margin-top: 100px;
 }
 
+.courses::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(0deg,
+      rgba(54, 145, 191, 0.03) 0px,
+      rgba(54, 145, 191, 0.03) 1px,
+      transparent 1px,
+      transparent 50px),
+    repeating-linear-gradient(90deg,
+      rgba(54, 145, 191, 0.03) 0px,
+      rgba(54, 145, 191, 0.03) 1px,
+      transparent 1px,
+      transparent 50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.courses .container {
+  position: relative;
+  z-index: 1;
+}
+
 .main-courses-upper-curl {
   position: absolute;
   top: 0;
