@@ -1213,33 +1213,57 @@ h6 {
 }
 
 .footer {
-  background: #0d2538;
+  background: linear-gradient(135deg, #0a1f2e 0%, #0d2538 50%, #122d42 100%);
+  position: relative;
+  color: var(--white);
+  padding: 5rem 0 0;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image:
     repeating-linear-gradient(0deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
+      rgba(54, 145, 191, 0.03) 0px,
+      rgba(54, 145, 191, 0.03) 1px,
       transparent 1px,
       transparent 50px),
     repeating-linear-gradient(90deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
+      rgba(54, 145, 191, 0.03) 0px,
+      rgba(54, 145, 191, 0.03) 1px,
       transparent 1px,
       transparent 50px);
-  color: var(--white);
-  padding: 4rem 0 1rem;
+  pointer-events: none;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 2fr 1.2fr 1.5fr 1.3fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(54, 145, 191, 0.2);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .footer-brand .navbar-logo-text {
   color: var(--white);
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .footer-brand .navbar-logo-text span {
@@ -1247,64 +1271,91 @@ h6 {
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9375rem;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .footer-social {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .footer-social a {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(54, 145, 191, 0.2);
+  background: rgba(54, 145, 191, 0.15);
+  backdrop-filter: blur(10px);
   color: var(--white);
+  border: 1px solid rgba(54, 145, 191, 0.3);
   border-radius: 50%;
   font-size: 1.125rem;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-normal);
 }
 
 .footer-social a:hover {
   background: var(--primary-blue);
-  transform: translateY(-3px);
+  border-color: var(--primary-blue);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(54, 145, 191, 0.4);
 }
 
 .footer-column h4 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--white);
   margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-column h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), transparent);
+  border-radius: 2px;
 }
 
 .footer-links {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .footer-links li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 0.9375rem;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer-links a:hover {
   color: var(--primary-blue);
+  padding-left: 0.5rem;
+}
+
+.footer-links a i {
+  color: var(--primary-blue);
 }
 
 .footer-bottom {
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1313,8 +1364,9 @@ h6 {
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.875rem;
+  margin: 0;
 }
 
 .footer-bottom-links {
@@ -1323,14 +1375,14 @@ h6 {
 }
 
 .footer-bottom-links a {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 0.875rem;
   transition: color var(--transition-fast);
 }
 
 .footer-bottom-links a:hover {
-  color: var(--white);
+  color: var(--primary-blue);
 }
 
 @media (max-width: 1024px) {
