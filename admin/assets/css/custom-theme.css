@@ -575,6 +575,32 @@ a:hover {
     min-height: 80px !important;
 }
 
+/* Welcome Card Statistics Responsive */
+#welcomeStatisticsChart {
+    min-width: 130px !important;
+    flex-shrink: 0 !important;
+}
+
+.card-body .d-flex.justify-content-between.align-items-center {
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+}
+
+@media (max-width: 576px) {
+    .card-body .d-flex.justify-content-between.align-items-center {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    #welcomeStatisticsChart {
+        order: 1 !important;
+    }
+
+    .d-flex.flex-column.align-items-center.gap-1 {
+        order: 2 !important;
+    }
+}
+
 /* Glass Effect Cards */
 .card.glass-effect {
     background: var(--glass-bg) !important;
