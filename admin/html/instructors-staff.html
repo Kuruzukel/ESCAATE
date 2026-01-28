@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Manage Trainees | CAATE Admin Dashboard</title>
+    <title>Instructors & Staff | CAATE Admin Dashboard</title>
 
     <meta name="description" content="" />
 
@@ -68,7 +68,7 @@
                     </li>
 
                     <!-- Manage Trainees -->
-                    <li class="menu-item active">
+                    <li class="menu-item">
                         <a href="manage-trainees.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-user"></i>
                             <div data-i18n="Manage Trainees">Manage Trainees</div>
@@ -92,32 +92,11 @@
                     </li>
 
                     <!-- Instructors & Staff -->
-                    <li class="menu-item">
+                    <li class="menu-item active">
                         <a href="instructors-staff.html" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
                             <div data-i18n="Instructors & Staff">Instructors & Staff</div>
                         </a>
-                    </li>
-
-                    <!-- Layouts -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-layout"></i>
-                            <div data-i18n="Layouts">Layouts</div>
-                        </a>
-
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="layouts-without-menu.html" class="menu-link">
-                                    <div data-i18n="Without menu">Without menu</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-without-navbar.html" class="menu-link">
-                                    <div data-i18n="Without navbar">Without navbar</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </aside>
@@ -140,8 +119,8 @@
                             <div class="nav-item d-flex align-items-center position-relative">
                                 <i class="bx bx-search fs-4 lh-0 position-absolute"
                                     style="left: 12px; z-index: 10;"></i>
-                                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                                    aria-label="Search..." style="padding-left: 40px;" />
+                                <input type="text" class="form-control border-0 shadow-none"
+                                    placeholder="Search staff..." aria-label="Search..." style="padding-left: 40px;" />
                             </div>
                         </div>
                         <!-- /Search -->
@@ -193,21 +172,22 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <!-- Trainee Statistics Cards -->
-                        <!-- Trainee Statistics Cards -->
-                        <div class="row">
+
+                        <!-- Staff Statistics Cards -->
+                        <div class="row mb-4">
                             <div class="col-lg-3 col-md-6 col-6 mb-4">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="card-title d-flex align-items-start justify-content-between">
                                             <div class="avatar flex-shrink-0">
-                                                <i class="bx bx-user-plus" style="font-size: 2rem; color: #10b981;"></i>
+                                                <i class="bx bx-chalkboard"
+                                                    style="font-size: 2rem; color: #3b82f6;"></i>
                                             </div>
                                         </div>
-                                        <span class="fw-semibold d-block mb-1">Total Trainees</span>
-                                        <h3 class="card-title mb-2">1,245</h3>
-                                        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>
-                                            +12.5%</small>
+                                        <span class="fw-semibold d-block mb-1">Total Trainers</span>
+                                        <h3 class="card-title mb-2">24</h3>
+                                        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +2
+                                            this month</small>
                                     </div>
                                 </div>
                             </div>
@@ -216,14 +196,13 @@
                                     <div class="card-body">
                                         <div class="card-title d-flex align-items-start justify-content-between">
                                             <div class="avatar flex-shrink-0">
-                                                <i class="bx bx-check-circle"
-                                                    style="font-size: 2rem; color: #3b82f6;"></i>
+                                                <i class="bx bx-briefcase" style="font-size: 2rem; color: #10b981;"></i>
                                             </div>
                                         </div>
-                                        <span>Active Trainees</span>
-                                        <h3 class="card-title text-nowrap mb-1">459</h3>
+                                        <span>Staff Members</span>
+                                        <h3 class="card-title text-nowrap mb-1">12</h3>
                                         <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>
-                                            +42.9%</small>
+                                            Active</small>
                                     </div>
                                 </div>
                             </div>
@@ -235,10 +214,10 @@
                                                 <i class="bx bx-time-five" style="font-size: 2rem; color: #f59e0b;"></i>
                                             </div>
                                         </div>
-                                        <span class="d-block mb-1">Pending</span>
-                                        <h3 class="card-title text-nowrap mb-2">86</h3>
+                                        <span class="d-block mb-1">On Duty Today</span>
+                                        <h3 class="card-title text-nowrap mb-2">18</h3>
                                         <small class="text-warning fw-semibold"><i class="bx bx-right-arrow-alt"></i>
-                                            Review</small>
+                                            Present</small>
                                     </div>
                                 </div>
                             </div>
@@ -247,26 +226,27 @@
                                     <div class="card-body">
                                         <div class="card-title d-flex align-items-start justify-content-between">
                                             <div class="avatar flex-shrink-0">
-                                                <i class="bx bx-award" style="font-size: 2rem; color: #8b5cf6;"></i>
+                                                <i class="bx bx-calendar-check"
+                                                    style="font-size: 2rem; color: #8b5cf6;"></i>
                                             </div>
                                         </div>
-                                        <span class="fw-semibold d-block mb-1">Graduated</span>
-                                        <h3 class="card-title mb-2">700</h3>
-                                        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>
-                                            +18.2%</small>
+                                        <span class="fw-semibold d-block mb-1">Scheduled Classes</span>
+                                        <h3 class="card-title mb-2">32</h3>
+                                        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> This
+                                            week</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Trainees Table -->
-                        <div class="row">
-                            <div class="col-12 mb-4">
+                        <!-- Trainers List -->
+                        <div class="row mb-4">
+                            <div class="col-12">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h5 class="mb-0">All Trainees</h5>
-                                        <button type="button" class="btn btn-primary">
-                                            <i class="bx bx-plus"></i> Add New Trainee
+                                        <h5 class="mb-0">Trainers List</h5>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="bx bx-plus"></i> Add Trainer
                                         </button>
                                     </div>
                                     <div class="card-body">
@@ -274,31 +254,30 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID</th>
-                                                        <th>Name</th>
-                                                        <th>Course</th>
+                                                        <th>Trainer</th>
+                                                        <th>Specialization</th>
                                                         <th>Status</th>
-                                                        <th>Enrollment Date</th>
+                                                        <th>Assigned Courses</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="table-border-bottom-0">
                                                     <tr>
-                                                        <td><strong>#001</strong></td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 <div class="avatar avatar-sm me-3">
                                                                     <span
-                                                                        class="avatar-initial rounded-circle bg-label-primary">AC</span>
+                                                                        class="avatar-initial rounded-circle bg-label-primary">MR</span>
                                                                 </div>
                                                                 <div>
-                                                                    <strong>Anna Cruz</strong>
+                                                                    <strong>Maria Rodriguez</strong>
+                                                                    <br><small class="text-muted">Senior Trainer</small>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>Beauty Care (Skin Care) NC II</td>
-                                                        <td><span class="badge bg-success">Enrolled</span></td>
-                                                        <td>Jan 15, 2026</td>
+                                                        <td>Skin Care & Aesthetics</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>3 Courses</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <button type="button"
@@ -312,30 +291,31 @@
                                                                             class="bx bx-edit-alt me-1"></i> Edit</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
-                                                                            class="bx bx-show me-1"></i> View</a>
+                                                                            class="bx bx-calendar me-1"></i>
+                                                                        Schedule</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
-                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                            class="bx bx-show me-1"></i> View</a>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>#002</strong></td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 <div class="avatar avatar-sm me-3">
                                                                     <span
-                                                                        class="avatar-initial rounded-circle bg-label-warning">JR</span>
+                                                                        class="avatar-initial rounded-circle bg-label-success">JS</span>
                                                                 </div>
                                                                 <div>
-                                                                    <strong>John Reyes</strong>
+                                                                    <strong>John Santos</strong>
+                                                                    <br><small class="text-muted">Trainer</small>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>Trainers Methodology Level I</td>
-                                                        <td><span class="badge bg-warning">Pending</span></td>
-                                                        <td>Jan 18, 2026</td>
+                                                        <td>Nail Care Services</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>2 Courses</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <button type="button"
@@ -349,68 +329,31 @@
                                                                             class="bx bx-edit-alt me-1"></i> Edit</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
-                                                                            class="bx bx-show me-1"></i> View</a>
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-trash me-1"></i> Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td><strong>#003</strong></td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-sm me-3">
-                                                                    <span
-                                                                        class="avatar-initial rounded-circle bg-label-danger">MS</span>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Maria Santos</strong>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Eyelash & Eyebrow Services Level III</td>
-                                                        <td><span class="badge bg-danger">Withdrawn</span></td>
-                                                        <td>Jan 10, 2026</td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button type="button"
-                                                                    class="btn p-0 dropdown-toggle hide-arrow"
-                                                                    data-bs-toggle="dropdown">
-                                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                            class="bx bx-calendar me-1"></i>
+                                                                        Schedule</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
                                                                             class="bx bx-show me-1"></i> View</a>
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-trash me-1"></i> Delete</a>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong>#004</strong></td>
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 <div class="avatar avatar-sm me-3">
                                                                     <span
-                                                                        class="avatar-initial rounded-circle bg-label-success">CM</span>
+                                                                        class="avatar-initial rounded-circle bg-label-info">LC</span>
                                                                 </div>
                                                                 <div>
-                                                                    <strong>Carlos Mendoza</strong>
+                                                                    <strong>Lisa Cruz</strong>
+                                                                    <br><small class="text-muted">Trainer</small>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>Aesthetic Services Level III</td>
-                                                        <td><span class="badge bg-success">Enrolled</span></td>
-                                                        <td>Jan 20, 2026</td>
+                                                        <td>Permanent Makeup</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>2 Courses</td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <button type="button"
@@ -424,48 +367,11 @@
                                                                             class="bx bx-edit-alt me-1"></i> Edit</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
-                                                                            class="bx bx-show me-1"></i> View</a>
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-trash me-1"></i> Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>#005</strong></td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar avatar-sm me-3">
-                                                                    <span
-                                                                        class="avatar-initial rounded-circle bg-label-primary">SG</span>
-                                                                </div>
-                                                                <div>
-                                                                    <strong>Sofia Garcia</strong>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>Beauty Care (Nail Care) NC II</td>
-                                                        <td><span class="badge bg-primary">Completed</span></td>
-                                                        <td>Dec 05, 2025</td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button type="button"
-                                                                    class="btn p-0 dropdown-toggle hide-arrow"
-                                                                    data-bs-toggle="dropdown">
-                                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                            class="bx bx-calendar me-1"></i>
+                                                                        Schedule</a>
                                                                     <a class="dropdown-item"
                                                                         href="javascript:void(0);"><i
                                                                             class="bx bx-show me-1"></i> View</a>
-                                                                    <a class="dropdown-item"
-                                                                        href="javascript:void(0);"><i
-                                                                            class="bx bx-certificate me-1"></i>
-                                                                        Certificate</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -477,6 +383,311 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Trainer Schedule & Time In/Out -->
+                        <div class="row mb-4">
+                            <!-- Trainer Schedule -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Today's Schedule</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="p-0 m-0" style="list-style: none;">
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-primary">
+                                                        <i class="bx bx-time"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Maria Rodriguez</h6>
+                                                        <small class="text-muted">Beauty Care (Skin Care) NC II</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0">8:00 AM - 12:00 PM</h6>
+                                                        <small class="text-success">Room 101</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-success">
+                                                        <i class="bx bx-time"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">John Santos</h6>
+                                                        <small class="text-muted">Beauty Care (Nail Care) NC II</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0">1:00 PM - 5:00 PM</h6>
+                                                        <small class="text-success">Room 102</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-info">
+                                                        <i class="bx bx-time"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Lisa Cruz</h6>
+                                                        <small class="text-muted">Permanent Make-Up Tattoo Level
+                                                            III</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0">9:00 AM - 1:00 PM</h6>
+                                                        <small class="text-success">Room 103</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-warning">
+                                                        <i class="bx bx-time"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Robert Garcia</h6>
+                                                        <small class="text-muted">Trainers Methodology Level I</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0">2:00 PM - 6:00 PM</h6>
+                                                        <small class="text-success">Room 104</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Time In / Time Out -->
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Time In / Time Out Today</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="p-0 m-0" style="list-style: none;">
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-success">
+                                                        <i class="bx bx-log-in"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Maria Rodriguez</h6>
+                                                        <small class="text-muted">Senior Trainer</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0 text-success">7:45 AM</h6>
+                                                        <small class="text-muted">Time In</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-success">
+                                                        <i class="bx bx-log-in"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">John Santos</h6>
+                                                        <small class="text-muted">Trainer</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0 text-success">12:50 PM</h6>
+                                                        <small class="text-muted">Time In</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-3 pb-3"
+                                                style="border-bottom: 1px solid rgba(54, 145, 191, 0.1);">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-success">
+                                                        <i class="bx bx-log-in"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Lisa Cruz</h6>
+                                                        <small class="text-muted">Trainer</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0 text-success">8:30 AM</h6>
+                                                        <small class="text-muted">Time In</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                                    <span class="avatar-initial rounded-circle bg-label-danger">
+                                                        <i class="bx bx-log-out"></i>
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">Sarah Mendez</h6>
+                                                        <small class="text-muted">Staff</small>
+                                                    </div>
+                                                    <div class="user-progress text-end">
+                                                        <h6 class="mb-0 text-danger">5:00 PM</h6>
+                                                        <small class="text-muted">Time Out</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Management -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Staff Management</h5>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="bx bx-plus"></i> Add Staff
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive text-nowrap">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Staff Member</th>
+                                                        <th>Position</th>
+                                                        <th>Department</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-border-bottom-0">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-primary">SM</span>
+                                                                </div>
+                                                                <strong>Sarah Mendez</strong>
+                                                            </div>
+                                                        </td>
+                                                        <td>Registrar</td>
+                                                        <td>Administration</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-show me-1"></i> View</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-success">DL</span>
+                                                                </div>
+                                                                <strong>David Lopez</strong>
+                                                            </div>
+                                                        </td>
+                                                        <td>IT Support</td>
+                                                        <td>Technical</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-show me-1"></i> View</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-info">ER</span>
+                                                                </div>
+                                                                <strong>Emma Rivera</strong>
+                                                            </div>
+                                                        </td>
+                                                        <td>Finance Officer</td>
+                                                        <td>Finance</td>
+                                                        <td><span class="badge bg-success">Active</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-show me-1"></i> View</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <!-- / Content -->
 
