@@ -550,6 +550,31 @@ a:hover {
     stroke: var(--primary-blue) !important;
 }
 
+/* ApexCharts Responsive */
+.apexcharts-canvas {
+    width: 100% !important;
+}
+
+.apexcharts-canvas svg {
+    width: 100% !important;
+    height: auto !important;
+}
+
+#profileReportChart {
+    width: 100% !important;
+    max-width: 200px !important;
+}
+
+#profileReportChart .apexcharts-canvas {
+    width: 100% !important;
+}
+
+#profileReportChart svg {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 80px !important;
+}
+
 /* Glass Effect Cards */
 .card.glass-effect {
     background: var(--glass-bg) !important;
