@@ -16593,7 +16593,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 }
 
 .layout-navbar-fixed .layout-navbar.navbar-detached {
-  width: calc(100% - calc(1.625rem * 2) - 15rem);
+  width: calc(100% - calc(1.625rem * 1) - 15rem);
 }
 
 @media (max-width: 1199.98px) {
