@@ -16320,7 +16320,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 .menu-vertical .menu-block,
 .menu-vertical .menu-inner>.menu-item,
 .menu-vertical .menu-inner>.menu-header {
-  width: 16.25rem;
+  width: 15rem;
 }
 
 .menu-vertical .menu-inner {
@@ -16434,7 +16434,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   margin-left: 1rem;
   padding-right: 1.5rem;
   padding-left: 0.5rem;
-  width: 16.25rem;
+  width: 15rem;
   text-indent: -9999px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -16589,7 +16589,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 }
 
 .layout-navbar-fixed .layout-navbar.navbar-detached {
-  width: calc(100% - calc(1.625rem * 2) - 16.25rem);
+  width: calc(100% - calc(1.625rem * 2) - 15rem);
 }
 
 @media (max-width: 1199.98px) {
@@ -16715,7 +16715,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
 
   .layout-menu-fixed:not(.layout-menu-collapsed) .layout-page,
   .layout-menu-fixed-offcanvas:not(.layout-menu-collapsed) .layout-page {
-    padding-left: 16.25rem;
+    padding-left: 15rem;
   }
 }
 
@@ -16760,7 +16760,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   .layout-navbar-fixed:not(.layout-menu-collapsed) .layout-content-navbar:not(.layout-without-menu) .layout-navbar,
   .layout-menu-fixed.layout-navbar-fixed:not(.layout-menu-collapsed) .layout-content-navbar:not(.layout-without-menu) .layout-navbar,
   .layout-menu-fixed-offcanvas.layout-navbar-fixed:not(.layout-menu-collapsed) .layout-content-navbar:not(.layout-without-menu) .layout-navbar {
-    left: 16.25rem;
+    left: 15rem;
   }
 }
 
@@ -16773,7 +16773,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
 
 @media (min-width: 1200px) {
   .layout-footer-fixed:not(.layout-menu-collapsed) .layout-wrapper:not(.layout-without-menu) .content-footer {
-    left: 16.25rem;
+    left: 15rem;
   }
 }
 

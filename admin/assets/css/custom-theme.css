@@ -1083,3 +1083,20 @@ footer span,
     margin-top: 0.5rem;
     padding-top: 0.75rem;
 }
+
+/* Adjust app-brand to use flexbox for proper alignment */
+.app-brand.demo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.5rem 1rem 0.75rem 1rem !important;
+}
+
+.app-brand-link {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
