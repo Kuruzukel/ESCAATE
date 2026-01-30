@@ -6715,7 +6715,7 @@ a.invert-bg-dark:focus {
 }
 
 .container-p-y:not([class^=pt-]):not([class*=" pt-"]) {
-  padding-top: 1.625rem !important;
+  padding-top: 0.5rem !important;
 }
 
 .container-p-y:not([class^=pb-]):not([class*=" pb-"]) {

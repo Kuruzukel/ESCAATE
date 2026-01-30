@@ -50,9 +50,10 @@ body {
     background-attachment: fixed !important;
     min-height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
-/* Remove blur overlay - keep background crisp and clear */
+/* Blur the background image */
 body::before {
     content: '';
     position: fixed;
@@ -60,17 +61,53 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 31, 51, 0.15);
-    z-index: -1;
+    background-image: url('../../../img/CAATEBGEDITED.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(0px);
+    z-index: 0;
+}
+
+/* Dark overlay for better contrast */
+.dark-overlay {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 31, 51, 0.3);
+    z-index: 1;
+}
+
+/* Grid Pattern Overlay - Lower Opacity */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 2;
+    pointer-events: none;
 }
 
 /* Container Background */
 .container-xxl {
     background-color: transparent !important;
+    position: relative;
+    z-index: 10;
 }
 
 .authentication-wrapper {
     background-color: transparent !important;
+    position: relative;
+    z-index: 10;
 }
 
 /* Card Styles with Glassmorphism - Matching Admin Dashboard Navbar */
@@ -119,7 +156,7 @@ body::before {
 
 .card-body {
     color: var(--white) !important;
-    padding: 2.5rem !important;
+    padding: 1.5rem !important;
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -138,7 +175,6 @@ body::before {
     height: 60px !important;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 12px rgba(54, 145, 191, 0.3);
 }
 
 .app-brand-text {
@@ -436,7 +472,7 @@ small:hover {
 
 /* Override Authentication Wrapper Width */
 .authentication-wrapper {
-    max-width: 480px !important;
+    max-width: 650px !important;
     margin: 0 auto !important;
     width: 100% !important;
 }
@@ -455,12 +491,216 @@ small:hover {
 
 @media (min-width: 577px) and (max-width: 768px) {
     .authentication-wrapper {
-        max-width: 450px !important;
+        max-width: 550px !important;
     }
 }
 
 @media (min-width: 769px) {
     .authentication-wrapper {
-        max-width: 480px !important;
+        max-width: 650px !important;
     }
+}
+
+
+/* Animated Orbs Container */
+.orbs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Orb Styles - More Visible and Animated */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.7;
+    animation: float 20s infinite ease-in-out;
+    will-change: transform;
+}
+
+.orb-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(54, 145, 191, 1) 0%, rgba(54, 145, 191, 0) 70%);
+    top: -350px;
+    left: -350px;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(50, 85, 150, 0.9) 0%, rgba(50, 85, 150, 0) 70%);
+    top: 30%;
+    right: -300px;
+    animation-delay: 3s;
+    animation-duration: 25s;
+}
+
+.orb-3 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(58, 99, 133, 0.8) 0%, rgba(58, 99, 133, 0) 70%);
+    bottom: -250px;
+    left: 20%;
+    animation-delay: 7s;
+    animation-duration: 30s;
+}
+
+.orb-4 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(54, 145, 191, 0.7) 0%, rgba(54, 145, 191, 0) 70%);
+    top: 10%;
+    right: 15%;
+    animation-delay: 12s;
+    animation-duration: 22s;
+}
+
+.orb-5 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(22, 56, 86, 0.8) 0%, rgba(22, 56, 86, 0) 70%);
+    bottom: 20%;
+    left: 5%;
+    animation-delay: 5s;
+    animation-duration: 28s;
+}
+
+/* Floating Animation - More Dynamic Movement */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(80px, -80px) scale(1.15) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(-60px, 60px) scale(0.85) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(70px, 90px) scale(1.1) rotate(270deg);
+    }
+}
+
+
+/* Registration Buttons Section */
+.registration-section {
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(54, 145, 191, 0.2);
+}
+
+.registration-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-registration {
+    flex: 1;
+    min-width: 200px;
+    background: linear-gradient(135deg, rgba(54, 145, 191, 0.2) 0%, rgba(50, 85, 150, 0.2) 100%) !important;
+    border: 1px solid rgba(54, 145, 191, 0.4) !important;
+    color: var(--white) !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: var(--border-radius-sm) !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-registration i {
+    font-size: 1.1rem;
+}
+
+.btn-registration:hover {
+    background: linear-gradient(135deg, rgba(54, 145, 191, 0.4) 0%, rgba(50, 85, 150, 0.4) 100%) !important;
+    border-color: rgba(54, 145, 191, 0.6) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(54, 145, 191, 0.3) !important;
+}
+
+.btn-registration:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+    .registration-buttons {
+        flex-direction: column;
+    }
+
+    .btn-registration {
+        min-width: 100%;
+    }
+}
+
+
+/* Highlight Create an Account Link */
+.highlight-link {
+    color: var(--white) !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.highlight-link:hover {
+    color: var(--primary-blue) !important;
+    text-shadow: 0 0 10px rgba(54, 145, 191, 0.5);
+}
+
+.highlight-link strong {
+    color: inherit !important;
+}
+
+/* Back to Home Page Link */
+.back-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white) !important;
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    font-weight: 600 !important;
+    transition: all var(--transition-fast);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.back-home-link:hover {
+    color: var(--primary-blue) !important;
+    text-shadow: 0 0 12px rgba(54, 145, 191, 0.6);
+}
+
+.back-home-link i {
+    font-size: 1.1rem;
+    transition: color var(--transition-fast);
+    color: var(--white) !important;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+.back-home-link:hover i {
+    color: var(--primary-blue) !important;
+    filter: drop-shadow(0 0 10px rgba(54, 145, 191, 0.6));
 }
