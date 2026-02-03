@@ -39,6 +39,82 @@
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
+
+    <!-- Custom Scrollbar Styles -->
+    <style>
+        /* Professional Custom Scrollbar for Attendance Table */
+        .table-responsive {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(54, 145, 191, 0.9) rgba(15, 41, 66, 0.2);
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, rgba(15, 41, 66, 0.15) 0%, rgba(15, 41, 66, 0.25) 100%);
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border-radius: 12px;
+            margin: 6px;
+            border: 1px solid rgba(54, 145, 191, 0.15);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.05);
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg,
+                    rgba(54, 145, 191, 0.95) 0%,
+                    rgba(50, 85, 150, 0.95) 50%,
+                    rgba(22, 56, 86, 0.95) 100%);
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 3px 10px rgba(22, 56, 86, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.4),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(54, 145, 191, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg,
+                    rgba(54, 145, 191, 1) 0%,
+                    rgba(50, 85, 150, 1) 50%,
+                    rgba(22, 56, 86, 1) 100%);
+            border: 2.5px solid rgba(255, 255, 255, 0.45);
+            box-shadow: 0 5px 18px rgba(22, 56, 86, 0.6),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(54, 145, 191, 0.5),
+                0 0 50px rgba(54, 145, 191, 0.2);
+            transform: scale(1.05);
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(135deg,
+                    rgba(50, 85, 150, 1) 0%,
+                    rgba(22, 56, 86, 1) 50%,
+                    rgba(15, 41, 66, 1) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(22, 56, 86, 0.7),
+                inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                inset 0 -1px 3px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(54, 145, 191, 0.3);
+            transform: scale(0.98);
+        }
+
+        .table-responsive::-webkit-scrollbar-corner {
+            background: linear-gradient(135deg, rgba(15, 41, 66, 0.2) 0%, rgba(15, 41, 66, 0.3) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 12px;
+            border: 1px solid rgba(54, 145, 191, 0.15);
+        }
+    </style>
 </head>
 
 <body>
@@ -597,6 +673,246 @@
                                                         <td><span class="badge bg-label-info">--:--</span></td>
                                                         <td><span class="badge bg-label-info">--:--</span></td>
                                                         <td><span class="badge bg-info">Excused</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#changeStatusModal"><i
+                                                                            class="bx bx-refresh me-1"></i> Change
+                                                                        Status</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewPicturesModal"><i
+                                                                            class="bx bx-image me-1"></i> View
+                                                                        Pictures</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewDetailsModal"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>#06</strong></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-success">LT</span>
+                                                                </div>
+                                                                <div>
+                                                                    <strong>Luis Torres</strong>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>Permanent Makeup Tattoo Level III</td>
+                                                        <td>Feb 03, 2026</td>
+                                                        <td><span class="badge bg-label-success">08:00 AM</span></td>
+                                                        <td><span class="badge bg-label-success">05:00 PM</span></td>
+                                                        <td><span class="badge bg-success">Present</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#changeStatusModal"><i
+                                                                            class="bx bx-refresh me-1"></i> Change
+                                                                        Status</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewPicturesModal"><i
+                                                                            class="bx bx-image me-1"></i> View
+                                                                        Pictures</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewDetailsModal"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>#07</strong></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-warning">IR</span>
+                                                                </div>
+                                                                <div>
+                                                                    <strong>Isabella Ramos</strong>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>Aesthetic Services Level II</td>
+                                                        <td>Feb 03, 2026</td>
+                                                        <td><span class="badge bg-label-warning">08:20 AM</span></td>
+                                                        <td><span class="badge bg-label-success">05:00 PM</span></td>
+                                                        <td><span class="badge bg-warning">Late</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#changeStatusModal"><i
+                                                                            class="bx bx-refresh me-1"></i> Change
+                                                                        Status</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewPicturesModal"><i
+                                                                            class="bx bx-image me-1"></i> View
+                                                                        Pictures</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewDetailsModal"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>#08</strong></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-info">DV</span>
+                                                                </div>
+                                                                <div>
+                                                                    <strong>Diego Villanueva</strong>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>Advanced Skin Care Level IV</td>
+                                                        <td>Feb 03, 2026</td>
+                                                        <td><span class="badge bg-label-success">08:00 AM</span></td>
+                                                        <td><span class="badge bg-label-success">05:00 PM</span></td>
+                                                        <td><span class="badge bg-success">Present</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#changeStatusModal"><i
+                                                                            class="bx bx-refresh me-1"></i> Change
+                                                                        Status</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewPicturesModal"><i
+                                                                            class="bx bx-image me-1"></i> View
+                                                                        Pictures</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewDetailsModal"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>#09</strong></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-danger">EM</span>
+                                                                </div>
+                                                                <div>
+                                                                    <strong>Elena Martinez</strong>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>Eyelash & Eyebrow Services Level III</td>
+                                                        <td>Feb 03, 2026</td>
+                                                        <td><span class="badge bg-label-danger">--:--</span></td>
+                                                        <td><span class="badge bg-label-danger">--:--</span></td>
+                                                        <td><span class="badge bg-danger">Absent</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#changeStatusModal"><i
+                                                                            class="bx bx-refresh me-1"></i> Change
+                                                                        Status</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewPicturesModal"><i
+                                                                            class="bx bx-image me-1"></i> View
+                                                                        Pictures</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#viewDetailsModal"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>#10</strong></td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar avatar-sm me-3">
+                                                                    <span
+                                                                        class="avatar-initial rounded-circle bg-label-primary">RP</span>
+                                                                </div>
+                                                                <div>
+                                                                    <strong>Rafael Perez</strong>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>Trainers Methodology Level I</td>
+                                                        <td>Feb 03, 2026</td>
+                                                        <td><span class="badge bg-label-success">08:00 AM</span></td>
+                                                        <td><span class="badge bg-label-success">05:00 PM</span></td>
+                                                        <td><span class="badge bg-success">Present</span></td>
                                                         <td>
                                                             <div class="dropdown">
                                                                 <button type="button"
