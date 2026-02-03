@@ -143,6 +143,14 @@
                         </a>
                     </li>
 
+                    <!-- Appointments -->
+                    <li class="menu-item">
+                        <a href="appointments.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <div data-i18n="Appointments">Appointments</div>
+                        </a>
+                    </li>
+
                     <!-- Records -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -168,14 +176,6 @@
                         </ul>
                     </li>
 
-                    <!-- Appointments -->
-                    <li class="menu-item">
-                        <a href="appointments.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-calendar"></i>
-                            <div data-i18n="Appointments">Appointments</div>
-                        </a>
-                    </li>
-
                     <!-- Inventory Management -->
                     <li class="menu-item open"><a href="javascript:void(0);" class="menu-link menu-toggle"><i
                                 class="menu-icon tf-icons bx bx-package"></i>
@@ -189,6 +189,14 @@
                                     <div data-i18n="CAATE Inventory">CAATE Inventory</div>
                                 </a></li>
                         </ul>
+                    </li>
+
+                    <!-- Appointments -->
+                    <li class="menu-item">
+                        <a href="appointments.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar"></i>
+                            <div data-i18n="Appointments">Appointments</div>
+                        </a>
                     </li>
 
                     <!-- Settings -->
@@ -446,6 +454,7 @@
                                                         <th>Quantity On Site</th>
                                                         <th>Difference</th>
                                                         <th>Inspector's Remarks</th>
+                                                        <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody class="table-border-bottom-0">
@@ -457,6 +466,28 @@
                                                         <td>3 Units</td>
                                                         <td>3/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Laser 755 Lens</strong></td>
@@ -465,6 +496,28 @@
                                                         <td>3 Units</td>
                                                         <td>3/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Diode Laser Machine</strong></td>
@@ -473,6 +526,28 @@
                                                         <td>2 Units</td>
                                                         <td>2/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Radiofrequency Machine</strong></td>
@@ -481,6 +556,28 @@
                                                         <td>2 Units</td>
                                                         <td>2/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Hifu (High Intensity Focused Ultrasound)</strong>
@@ -490,6 +587,28 @@
                                                         <td>2 Units</td>
                                                         <td>2/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Cryo Therapy Machine (Hot & Cold)</strong></td>
@@ -498,6 +617,28 @@
                                                         <td>3 Units</td>
                                                         <td>3/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Facial Steamer</strong></td>
@@ -506,6 +647,28 @@
                                                         <td>3 Units</td>
                                                         <td>3/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>U.V Sterilizer</strong></td>
@@ -514,6 +677,28 @@
                                                         <td>1 Unit</td>
                                                         <td>1/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Hot Towel Warmer</strong></td>
@@ -522,6 +707,28 @@
                                                         <td>1 Unit</td>
                                                         <td>1/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>LED Magnifying Lamp</strong></td>
@@ -530,6 +737,28 @@
                                                         <td>5 Units</td>
                                                         <td>0/+2</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Facial Bed</strong></td>
@@ -539,6 +768,28 @@
                                                         <td>5 Units</td>
                                                         <td>5/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Stool</strong></td>
@@ -547,6 +798,148 @@
                                                         <td>5 Pcs</td>
                                                         <td>5/0</td>
                                                         <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Tattoo Machine Kit</strong></td>
+                                                        <td>Permanent Makeup</td>
+                                                        <td>10 Units</td>
+                                                        <td>10 Units</td>
+                                                        <td>10/0</td>
+                                                        <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Wax Warmer</strong></td>
+                                                        <td>Hair Removal Equipment</td>
+                                                        <td>15 Units</td>
+                                                        <td>15 Units</td>
+                                                        <td>15/0</td>
+                                                        <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Magnifying Lamp</strong></td>
+                                                        <td>General Equipment</td>
+                                                        <td>20 Units</td>
+                                                        <td>20 Units</td>
+                                                        <td>20/0</td>
+                                                        <td><span class="badge bg-success">Compliant</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Collagen Infusion System</strong></td>
+                                                        <td>Collagen Treatment</td>
+                                                        <td>5 Units</td>
+                                                        <td>2 Units</td>
+                                                        <td>-3/0</td>
+                                                        <td><span class="badge bg-warning">Low Stock</span></td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button type="button"
+                                                                    class="btn p-0 dropdown-toggle hide-arrow"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="editEquipment(this)"><i
+                                                                            class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);"
+                                                                        onclick="viewDetails(this)"><i
+                                                                            class="bx bx-show me-1"></i> View
+                                                                        Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);"
+                                                                        onclick="deleteEquipment(this)"><i
+                                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
