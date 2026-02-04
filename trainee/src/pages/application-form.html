@@ -80,26 +80,21 @@
                         </a>
                     </li>
 
-                    <!-- Enrollment -->
+                    <!-- Records -->
                     <li class="menu-item active open">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-file"></i>
-                            <div data-i18n="Enrollment">Enrollment</div>
+                            <div data-i18n="Assessment">Assessment</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item active">
                                 <a href="application-form.html" class="menu-link">
-                                    <div data-i18n="Application Form">Application</div>
+                                    <div data-i18n="Application Form">Application Form</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="new-scholar-form.html" class="menu-link">
-                                    <div data-i18n="New Scholar Form">New Scholar</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="existing-scholar-form.html" class="menu-link">
-                                    <div data-i18n="Existing Scholar Form">Existing Scholar</div>
+                                <a href="admission-slip.html" class="menu-link">
+                                    <div data-i18n="Admission Slip">Admission Slip</div>
                                 </a>
                             </li>
                         </ul>
@@ -912,11 +907,17 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <button type="submit" class="btn btn-primary btn-lg">
-                                                <i class="bx bx-check me-2"></i>Submit Application
-                                            </button>
-                                            <button type="reset" class="btn btn-secondary btn-lg ms-2">
+                                            <button type="button" class="btn btn-secondary btn-lg ms-2"
+                                                data-bs-toggle="modal" data-bs-target="#resetModal">
                                                 <i class="bx bx-reset me-2"></i>Reset Form
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal"
+                                                data-bs-target="#submitModal">
+                                                <i class="bx bx-check-circle me-2"></i>Submit Form
+                                            </button>
+                                            <button type="button" class="btn btn-primary btn-lg ms-2"
+                                                data-bs-toggle="modal" data-bs-target="#printModal">
+                                                <i class="bx bx-printer me-2"></i>Print Form
                                             </button>
                                         </div>
                                     </div>
@@ -952,6 +953,111 @@
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
+
+    <!-- Reset Confirmation Modal -->
+    <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border: 2px solid #3691bf; border-radius: 15px;">
+                <div class="modal-header"
+                    style="background: linear-gradient(135deg, #3691bf 0%, #325596 100%); border-radius: 13px 13px 0 0;">
+                    <h5 class="modal-title text-white" id="resetModalLabel">
+                        <i class="bx bx-reset me-2"></i>Reset Form Confirmation
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important;">
+                    <div class="text-center py-3">
+                        <i class="bx bx-error-circle" style="font-size: 4rem; color: #3691bf;"></i>
+                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Are you sure you want to reset
+                            the form?</h5>
+                        <p style="color: #e8f4fc; font-weight: 500;">All entered information will be cleared and cannot
+                            be recovered.</p>
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important; border-top: 1px solid #3691bf;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="confirmResetApplication()">
+                        <i class="bx bx-reset me-1"></i>Yes, Reset Form
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Confirmation Modal -->
+    <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border: 2px solid #3691bf; border-radius: 15px;">
+                <div class="modal-header"
+                    style="background: linear-gradient(135deg, #3691bf 0%, #325596 100%); border-radius: 13px 13px 0 0;">
+                    <h5 class="modal-title text-white" id="submitModalLabel">
+                        <i class="bx bx-check-circle me-2"></i>Submit Application Form
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important;">
+                    <div class="text-center py-3">
+                        <i class="bx bx-check-shield" style="font-size: 4rem; color: #3691bf;"></i>
+                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Ready to submit your application
+                            form?</h5>
+                        <p style="color: #e8f4fc; font-weight: 500;">Please review all information before submitting.
+                            You can print a copy after submission.</p>
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important; border-top: 1px solid #3691bf;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="confirmSubmitApplication()">
+                        <i class="bx bx-check-circle me-1"></i>Yes, Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Confirmation Modal -->
+    <div class="modal fade" id="printModal" tabindex="-1" aria-labelledby="printModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border: 2px solid #3691bf; border-radius: 15px;">
+                <div class="modal-header"
+                    style="background: linear-gradient(135deg, #3691bf 0%, #325596 100%); border-radius: 13px 13px 0 0;">
+                    <h5 class="modal-title text-white" id="printModalLabel">
+                        <i class="bx bx-printer me-2"></i>Print Application Form
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important;">
+                    <div class="text-center py-3">
+                        <i class="bx bx-printer" style="font-size: 4rem; color: #3691bf;"></i>
+                        <h5 class="mt-3 mb-2" style="color: #ffffff; font-weight: 700;">Ready to print your application
+                            form?</h5>
+                        <p style="color: #e8f4fc; font-weight: 500;">Make sure all information is correct before
+                            printing. Remember to bring this form on your assessment date.</p>
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    style="background: linear-gradient(135deg, rgba(54, 145, 191, 0.1) 0%, rgba(42, 123, 168, 0.1) 100%) !important; border-top: 1px solid #3691bf;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="confirmPrintApplication()">
+                        <i class="bx bx-printer me-1"></i>Yes, Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Core JS -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>

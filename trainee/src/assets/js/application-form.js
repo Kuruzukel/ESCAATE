@@ -333,7 +333,7 @@ setInterval(autoSave, 30000);
 // Load saved data on page load (optional)
 window.addEventListener('load', function () {
     const savedData = localStorage.getItem('applicationFormDraft');
-    if (savedData && confirm('Would you like to restore your previously saved draft?')) {
+    if (savedData) {
         const data = JSON.parse(savedData);
         const form = document.getElementById('applicationForm');
 
@@ -345,5 +345,35 @@ window.addEventListener('load', function () {
         }
     }
 });
+
+// Confirmation functions for modals
+function confirmResetApplication() {
+    document.getElementById('applicationForm').reset();
+    // Close modal
+    const resetModal = bootstrap.Modal.getInstance(document.getElementById('resetModal'));
+    resetModal.hide();
+    // Show success message
+    alert('Form has been reset successfully!');
+}
+
+function confirmSubmitApplication() {
+    const form = document.getElementById('applicationForm');
+    // You can add form validation here
+    // For now, we'll just submit the form
+    form.submit();
+    // Close modal
+    const submitModal = bootstrap.Modal.getInstance(document.getElementById('submitModal'));
+    submitModal.hide();
+}
+
+function confirmPrintApplication() {
+    // Close modal first
+    const printModal = bootstrap.Modal.getInstance(document.getElementById('printModal'));
+    printModal.hide();
+    // Wait for modal to close, then print
+    setTimeout(() => {
+        window.print();
+    }, 300);
+}
 
 console.log('Application Form JS loaded successfully');
