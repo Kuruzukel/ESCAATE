@@ -33,253 +33,15 @@
     <!-- CAATE Custom Theme -->
     <link rel="stylesheet" href="../assets/css/custom-theme.css" />
 
+    <!-- Application Form CSS -->
+    <link rel="stylesheet" href="../assets/css/application-form.css" />
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
-
-    <style>
-        .reference-inputs {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .reference-input-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .reference-input-group input {
-            width: 60px;
-            text-align: center;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .reference-input-group small {
-            font-size: 0.75rem;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .picture-signature-section {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .picture-container {
-            border: 2px dashed #d0d5dd;
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .picture-container:hover {
-            border-color: #3691bf;
-            background-color: #f8f9fa;
-        }
-
-        .picture-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: #6c757d;
-        }
-
-        .picture-placeholder svg {
-            color: #3691bf;
-        }
-
-        #picturePreview {
-            max-width: 100%;
-            max-height: 200px;
-            border-radius: 4px;
-        }
-
-        .canvas-wrapper {
-            position: relative;
-        }
-
-        #signatureCanvas {
-            border: 1px solid #d0d5dd;
-            border-radius: 4px;
-            width: 100%;
-            cursor: crosshair;
-            background-color: #ffffff;
-        }
-
-        .btn-clear {
-            margin-top: 0.5rem;
-            padding: 0.375rem 0.75rem;
-            font-size: 0.875rem;
-            border: 1px solid #d0d5dd;
-            background: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .btn-clear:hover {
-            background-color: #f8f9fa;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .radio-group.vertical {
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .radio-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            color: #495057;
-            font-weight: 500;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        .data-table th,
-        .data-table td {
-            border: 1px solid #d0d5dd;
-            padding: 0.5rem;
-            text-align: left;
-        }
-
-        .data-table th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .data-table input {
-            width: 100%;
-            border: none;
-            padding: 0.25rem;
-            color: #495057;
-            font-weight: 500;
-        }
-
-        .data-table input:focus {
-            outline: 1px solid #3691bf;
-        }
-
-        .btn-add-row {
-            padding: 0.5rem 1rem;
-            background-color: #3691bf;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .btn-add-row:hover {
-            background-color: #2a7ba8;
-        }
-
-        .btn-remove {
-            padding: 0.25rem 0.5rem;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .btn-remove:hover {
-            background-color: #c82333;
-        }
-
-        .subsection-title {
-            font-weight: 600;
-            margin: 1.5rem 0 1rem;
-            color: #2c3e50;
-            font-size: 1rem;
-        }
-
-        .readonly-field {
-            background-color: #e9ecef;
-            cursor: not-allowed;
-        }
-
-        .helper-text {
-            color: #6c757d;
-            font-size: 0.875rem;
-            font-style: italic;
-        }
-
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        .table-container {
-            overflow-x: auto;
-        }
-
-        /* Improve form control visibility */
-        .form-control {
-            color: #495057;
-            font-weight: 500;
-        }
-
-        .form-control:focus {
-            border-color: #3691bf;
-            box-shadow: 0 0 0 0.2rem rgba(54, 145, 191, 0.25);
-        }
-
-        .form-label {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .card-header h4 {
-            color: #2c3e50;
-        }
-
-        .card-header h4 i {
-            color: #3691bf;
-        }
-
-        @media (max-width: 768px) {
-            .picture-signature-section {
-                grid-template-columns: 1fr;
-            }
-
-            .reference-inputs {
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -482,33 +244,38 @@
                                                 <div class="reference-inputs">
                                                     <div class="reference-input-group">
                                                         <input type="text" id="referenceQualifiable"
-                                                            class="form-control" placeholder="Q" maxlength="1"
-                                                            autocomplete="off">
+                                                            name="referenceQualifiable" class="form-control"
+                                                            placeholder="Q" maxlength="1" autocomplete="off">
                                                         <small>Qualifiable</small>
                                                     </div>
                                                     <div class="reference-input-group">
-                                                        <input type="text" id="referenceYY" class="form-control"
-                                                            placeholder="YY" maxlength="2" autocomplete="off">
+                                                        <input type="text" id="referenceYY" name="referenceYY"
+                                                            class="form-control" placeholder="YY" maxlength="2"
+                                                            autocomplete="off">
                                                         <small>Year</small>
                                                     </div>
                                                     <div class="reference-input-group">
-                                                        <input type="text" id="referenceRegion" class="form-control"
-                                                            placeholder="RR" maxlength="2" autocomplete="off">
+                                                        <input type="text" id="referenceRegion" name="referenceRegion"
+                                                            class="form-control" placeholder="RR" maxlength="2"
+                                                            autocomplete="off">
                                                         <small>Region</small>
                                                     </div>
                                                     <div class="reference-input-group">
-                                                        <input type="text" id="referenceProvince" class="form-control"
+                                                        <input type="text" id="referenceProvince"
+                                                            name="referenceProvince" class="form-control"
                                                             placeholder="PP" maxlength="2" autocomplete="off">
                                                         <small>Province</small>
                                                     </div>
                                                     <div class="reference-input-group">
-                                                        <input type="text" id="referenceNumber" class="form-control"
-                                                            placeholder="NNNN" maxlength="4" autocomplete="off">
+                                                        <input type="text" id="referenceNumber" name="referenceNumber"
+                                                            class="form-control" placeholder="NNNN" maxlength="4"
+                                                            autocomplete="off">
                                                         <small>Number</small>
                                                     </div>
                                                     <div class="reference-input-group">
-                                                        <input type="text" id="referenceSeries" class="form-control"
-                                                            placeholder="SS" maxlength="2" autocomplete="off">
+                                                        <input type="text" id="referenceSeries" name="referenceSeries"
+                                                            class="form-control" placeholder="SS" maxlength="2"
+                                                            autocomplete="off">
                                                         <small>Series</small>
                                                     </div>
                                                 </div>
@@ -549,9 +316,8 @@
                                                 </div>
                                                 <div>
                                                     <div class="mb-3">
-                                                        <label for="signatureCanvas"
-                                                            class="form-label fw-semibold">Applicant's Signature <span
-                                                                class="text-danger">*</span></label>
+                                                        <label class="form-label fw-semibold">Applicant's Signature
+                                                            <span class="text-danger">*</span></label>
                                                         <div class="canvas-wrapper">
                                                             <canvas id="signatureCanvas" width="300"
                                                                 height="100"></canvas>
@@ -1198,220 +964,7 @@
     <script src="../assets/js/main.js"></script>
 
     <!-- Application Form JS -->
-    <script>
-        // Picture upload handler
-        document.getElementById('picture').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    const preview = document.getElementById('picturePreview');
-                    const placeholder = document.getElementById('picturePlaceholder');
-                    preview.src = event.target.result;
-                    preview.style.display = 'block';
-                    placeholder.style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Signature canvas
-        const canvas = document.getElementById('signatureCanvas');
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
-        let lastX = 0;
-        let lastY = 0;
-
-        canvas.addEventListener('mousedown', (e) => {
-            isDrawing = true;
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        });
-
-        canvas.addEventListener('mousemove', (e) => {
-            if (!isDrawing) return;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        });
-
-        canvas.addEventListener('mouseup', () => isDrawing = false);
-        canvas.addEventListener('mouseout', () => isDrawing = false);
-
-        // Touch events for mobile
-        canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            const touch = e.touches[0];
-            const rect = canvas.getBoundingClientRect();
-            isDrawing = true;
-            [lastX, lastY] = [touch.clientX - rect.left, touch.clientY - rect.top];
-        });
-
-        canvas.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            if (!isDrawing) return;
-            const touch = e.touches[0];
-            const rect = canvas.getBoundingClientRect();
-            const x = touch.clientX - rect.left;
-            const y = touch.clientY - rect.top;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(x, y);
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-            [lastX, lastY] = [x, y];
-        });
-
-        canvas.addEventListener('touchend', () => isDrawing = false);
-
-        // Clear signature
-        document.querySelector('.btn-clear').addEventListener('click', function () {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        });
-
-        // Calculate age from birthdate
-        document.getElementById('birthDate').addEventListener('change', function () {
-            const birthDate = new Date(this.value);
-            const today = new Date();
-            let age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            document.getElementById('age').value = age;
-        });
-
-        // Add work experience row
-        function addWorkRow() {
-            const tbody = document.getElementById('workExperienceBody');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td><input type="text" name="workCompany[]" autocomplete="off"></td>
-                <td><input type="text" name="workPosition[]" autocomplete="off"></td>
-                <td><input type="text" name="workDates[]" placeholder="MM/YYYY - MM/YYYY" autocomplete="off"></td>
-                <td><input type="text" name="workSalary[]" autocomplete="off"></td>
-                <td><input type="text" name="workStatus[]" autocomplete="off"></td>
-                <td><input type="number" name="workYears[]" step="0.1" autocomplete="off"></td>
-                <td><button type="button" class="btn-remove" onclick="removeWorkRow(this)">Remove</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-
-        function removeWorkRow(btn) {
-            const tbody = document.getElementById('workExperienceBody');
-            if (tbody.children.length > 1) {
-                btn.closest('tr').remove();
-            }
-        }
-
-        // Add training row
-        function addTrainingRow() {
-            const tbody = document.getElementById('trainingBody');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td><input type="text" name="trainingTitle[]" autocomplete="off"></td>
-                <td><input type="text" name="trainingVenue[]" autocomplete="off"></td>
-                <td><input type="text" name="trainingDates[]" placeholder="MM/YYYY - MM/YYYY" autocomplete="off"></td>
-                <td><input type="number" name="trainingHours[]" autocomplete="off"></td>
-                <td><input type="text" name="trainingConductedBy[]" autocomplete="off"></td>
-                <td><button type="button" class="btn-remove" onclick="removeTrainingRow(this)">Remove</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-
-        function removeTrainingRow(btn) {
-            const tbody = document.getElementById('trainingBody');
-            if (tbody.children.length > 1) {
-                btn.closest('tr').remove();
-            }
-        }
-
-        // Add licensure row
-        function addLicensureRow() {
-            const tbody = document.getElementById('licensureBody');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td><input type="text" name="licensureTitle[]" autocomplete="off"></td>
-                <td><input type="number" name="licensureYear[]" min="1900" max="2100" autocomplete="off"></td>
-                <td><input type="text" name="licensureVenue[]" autocomplete="off"></td>
-                <td><input type="text" name="licensureRating[]" autocomplete="off"></td>
-                <td><input type="text" name="licensureRemarks[]" autocomplete="off"></td>
-                <td><input type="date" name="licensureExpiry[]" autocomplete="off"></td>
-                <td><button type="button" class="btn-remove" onclick="removeLicensureRow(this)">Remove</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-
-        function removeLicensureRow(btn) {
-            const tbody = document.getElementById('licensureBody');
-            if (tbody.children.length > 1) {
-                btn.closest('tr').remove();
-            }
-        }
-
-        // Add competency row
-        function addCompetencyRow() {
-            const tbody = document.getElementById('competencyBody');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td><input type="text" name="competencyTitle[]" autocomplete="off"></td>
-                <td><input type="text" name="competencyLevel[]" autocomplete="off"></td>
-                <td><input type="text" name="competencySector[]" autocomplete="off"></td>
-                <td><input type="text" name="competencyCert[]" autocomplete="off"></td>
-                <td><input type="date" name="competencyIssuance[]" autocomplete="off"></td>
-                <td><input type="date" name="competencyExpiry[]" autocomplete="off"></td>
-                <td><button type="button" class="btn-remove" onclick="removeCompetencyRow(this)">Remove</button></td>
-            `;
-            tbody.appendChild(row);
-        }
-
-        function removeCompetencyRow(btn) {
-            const tbody = document.getElementById('competencyBody');
-            if (tbody.children.length > 1) {
-                btn.closest('tr').remove();
-            }
-        }
-
-        // Form submission
-        document.getElementById('applicationForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Validate required fields
-            if (!this.checkValidity()) {
-                e.stopPropagation();
-                this.classList.add('was-validated');
-                return;
-            }
-
-            // Check if signature is drawn
-            const canvas = document.getElementById('signatureCanvas');
-            const ctx = canvas.getContext('2d');
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const hasSignature = imageData.data.some(channel => channel !== 0);
-
-            if (!hasSignature) {
-                alert('Please provide your signature');
-                return;
-            }
-
-            // Check if picture is uploaded
-            const picture = document.getElementById('picture');
-            if (!picture.files.length) {
-                alert('Please upload your picture');
-                return;
-            }
-
-            // If all validations pass, submit the form
-            alert('Application submitted successfully!');
-            // Here you would typically send the data to your backend
-        });
-    </script>
+    <script src="../assets/js/application-form.js"></script>
 </body>
 
 </html>
