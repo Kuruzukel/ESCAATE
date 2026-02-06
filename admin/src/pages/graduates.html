@@ -39,6 +39,14 @@
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
+
+    <style>
+        /* Ensure View and Edit buttons have the same border radius */
+        .view-graduate-btn,
+        .edit-graduate-btn {
+            border-radius: var(--border-radius-sm) !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -345,23 +353,39 @@
                                             <div class="card card-body"
                                                 style="background-color: #1a2332; border: 1px solid #2d3e52;">
                                                 <div class="row g-3">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <label class="form-label" style="color: #b8c5d6;">Search</label>
                                                         <input type="text" class="form-control"
                                                             placeholder="Name, ID, Email"
                                                             style="background-color: #243447; border: 1px solid #3d4f63; color: #b8c5d6;">
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <label class="form-label" style="color: #b8c5d6;">Course</label>
                                                         <select class="form-select"
                                                             style="background-color: #243447; border: 1px solid #3d4f63; color: #b8c5d6;">
                                                             <option value="">All Courses</option>
-                                                            <option value="beauty-skin">Beauty Care (Skin Care) NC II
-                                                            </option>
                                                             <option value="beauty-nail">Beauty Care (Nail Care) NC II
+                                                            </option>
+                                                            <option value="beauty-skin">Beauty Care (Skin Care) NC II
                                                             </option>
                                                             <option value="trainers">Trainers Methodology Level I
                                                             </option>
+                                                            <option value="eyelash-eyebrow">Eyelash and Eyebrow Services
+                                                                Level III</option>
+                                                            <option value="aesthetic-ii">Aesthetic Services Level II
+                                                            </option>
+                                                            <option value="aesthetic-iii">Aesthetic Services Level III
+                                                            </option>
+                                                            <option value="advanced-skincare">Advanced Skin Care
+                                                                Services Level III</option>
+                                                            <option value="permanent-makeup">Permanent Make-Up Tattoo
+                                                                Services Level III</option>
+                                                            <option value="collagen-hairloss">Perform Collagen Induction
+                                                                Therapy & Hair Loss Treatment</option>
+                                                            <option value="facial-peeling">Perform Advanced Facial
+                                                                Treatment & Chemical Skin Peeling</option>
+                                                            <option value="light-heat-therapy">Perform Light Therapy &
+                                                                Heat Therapy</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-3">
@@ -375,20 +399,46 @@
                                                             <option value="2024">2024</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <label class="form-label" style="color: #b8c5d6;">Honors</label>
-                                                        <select class="form-select"
-                                                            style="background-color: #243447; border: 1px solid #3d4f63; color: #b8c5d6;">
-                                                            <option value="">All</option>
-                                                            <option value="honors">With Honors</option>
-                                                            <option value="regular">Regular</option>
-                                                        </select>
-                                                    </div>
                                                     <div class="col-md-1 d-flex align-items-end">
                                                         <button type="button" class="btn btn-outline-secondary w-100"
                                                             style="border-color: #3d4f63; color: #b8c5d6;">
                                                             <i class="bx bx-reset"></i>
                                                         </button>
+                                                    </div>
+                                                    <div class="col-md-12 mt-3">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div style="color: #b8c5d6;">
+                                                                Showing 1 to 8 of 700 graduates
+                                                            </div>
+                                                            <nav aria-label="Page navigation">
+                                                                <ul class="pagination mb-0">
+                                                                    <li class="page-item disabled">
+                                                                        <a class="page-link" href="#" tabindex="-1"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #6c757d;">Previous</a>
+                                                                    </li>
+                                                                    <li class="page-item active"><a class="page-link"
+                                                                            href="#"
+                                                                            style="background-color: var(--primary-blue) !important; border-color: var(--primary-blue) !important; color: #ffffff !important;">1</a>
+                                                                    </li>
+                                                                    <li class="page-item"><a class="page-link" href="#"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #b8c5d6;">2</a>
+                                                                    </li>
+                                                                    <li class="page-item"><a class="page-link" href="#"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #b8c5d6;">3</a>
+                                                                    </li>
+                                                                    <li class="page-item"><a class="page-link" href="#"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #b8c5d6;">...</a>
+                                                                    </li>
+                                                                    <li class="page-item"><a class="page-link" href="#"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #b8c5d6;">88</a>
+                                                                    </li>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="#"
+                                                                            style="background-color: #243447; border-color: #3d4f63; color: #b8c5d6;">Next</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,31 +449,42 @@
                                             <!-- Graduate Card 1 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/1.png" class="card-img-top"
-                                                        alt="Anna Cruz" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/AIRAH.png" class="card-img-top"
+                                                        alt="Airah G. Balbuena"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Anna Cruz</h5>
-                                                            <span class="badge bg-success">With Honors</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Airah G. Balbuena</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2026-001</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Skin Care)
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
                                                             NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Jan 2026
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>anna.cruz@email.com
+                                                            <i class="bx bx-envelope me-1"></i>airah@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Airah G. Balbuena" data-id="#GRD-2026-001"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Jan 2026" data-email="airah@email.com"
+                                                                data-image="../../../img/GRADUATES/AIRAH.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Airah G. Balbuena" data-id="#GRD-2026-001"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Jan 2026" data-email="airah@email.com"
+                                                                data-image="../../../img/GRADUATES/AIRAH.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -433,14 +494,11 @@
                                             <!-- Graduate Card 2 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/5.png" class="card-img-top"
-                                                        alt="Sofia Garcia" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/ANDREA.png" class="card-img-top"
+                                                        alt="Andrea Mae G. Espiritu"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Sofia Garcia</h5>
-                                                            <span class="badge bg-primary">Regular</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Andrea Mae G. Espiritu</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2026-002</p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
@@ -450,14 +508,30 @@
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Jan 2026
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>sofia.garcia@email.com
+                                                            <i class="bx bx-envelope me-1"></i>andrea@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Andrea Mae G. Espiritu"
+                                                                data-id="#GRD-2026-002"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Jan 2026" data-email="andrea@email.com"
+                                                                data-image="../../../img/GRADUATES/ANDREA.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Andrea Mae G. Espiritu"
+                                                                data-id="#GRD-2026-002"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Jan 2026" data-email="andrea@email.com"
+                                                                data-image="../../../img/GRADUATES/ANDREA.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -467,31 +541,44 @@
                                             <!-- Graduate Card 3 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/6.png" class="card-img-top"
-                                                        alt="Rafael Perez" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/CLARISSA.png" class="card-img-top"
+                                                        alt="Clarissa T. Venzon"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Rafael Perez</h5>
-                                                            <span class="badge bg-success">With Honors</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Clarissa T. Venzon</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2026-003</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Trainers Methodology
-                                                            Level I
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Dec 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>rafael.perez@email.com
+                                                            <i class="bx bx-envelope me-1"></i>clarissa@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Clarissa T. Venzon" data-id="#GRD-2026-003"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Dec 2025"
+                                                                data-email="clarissa@email.com"
+                                                                data-image="../../../img/GRADUATES/CLARISSA.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Clarissa T. Venzon" data-id="#GRD-2026-003"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Dec 2025"
+                                                                data-email="clarissa@email.com"
+                                                                data-image="../../../img/GRADUATES/CLARISSA.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -501,31 +588,42 @@
                                             <!-- Graduate Card 4 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/7.png" class="card-img-top"
-                                                        alt="Andres Rivera" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/EUNICE.png" class="card-img-top"
+                                                        alt="Eunice E. Galang"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Andres Rivera</h5>
-                                                            <span class="badge bg-primary">Regular</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Eunice E. Galang</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2025-045</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Aesthetic Services Level
-                                                            II
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Dec 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>andres.rivera@email.com
+                                                            <i class="bx bx-envelope me-1"></i>eunice@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Eunice E. Galang" data-id="#GRD-2025-045"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Dec 2025" data-email="eunice@email.com"
+                                                                data-image="../../../img/GRADUATES/EUNICE.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Eunice E. Galang" data-id="#GRD-2025-045"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Dec 2025" data-email="eunice@email.com"
+                                                                data-image="../../../img/GRADUATES/EUNICE.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -535,31 +633,42 @@
                                             <!-- Graduate Card 5 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/1.png" class="card-img-top"
-                                                        alt="Maria Santos" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/JARWYNE.png" class="card-img-top"
+                                                        alt="Jarwyne S. Milanes"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Maria Santos</h5>
-                                                            <span class="badge bg-success">With Honors</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Jarwyne S. Milanes</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2025-042</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Eyelash & Eyebrow
-                                                            Services Level III
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Nov 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>maria.santos@email.com
+                                                            <i class="bx bx-envelope me-1"></i>jarwyne@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Jarwyne S. Milanes" data-id="#GRD-2025-042"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Nov 2025" data-email="jarwyne@email.com"
+                                                                data-image="../../../img/GRADUATES/JARWYNE.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Jarwyne S. Milanes" data-id="#GRD-2025-042"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Nov 2025" data-email="jarwyne@email.com"
+                                                                data-image="../../../img/GRADUATES/JARWYNE.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -569,31 +678,42 @@
                                             <!-- Graduate Card 6 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/5.png" class="card-img-top"
-                                                        alt="Elena Martinez" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/JELLIE.png" class="card-img-top"
+                                                        alt="Jellie E. Miranda"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Elena Martinez</h5>
-                                                            <span class="badge bg-primary">Regular</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Jellie E. Miranda</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2025-038</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Advanced Skin Care Level
-                                                            IV
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Oct 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>elena.martinez@email.com
+                                                            <i class="bx bx-envelope me-1"></i>jellie@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Jellie E. Miranda" data-id="#GRD-2025-038"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Oct 2025" data-email="jellie@email.com"
+                                                                data-image="../../../img/GRADUATES/JELLIE.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Jellie E. Miranda" data-id="#GRD-2025-038"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Oct 2025" data-email="jellie@email.com"
+                                                                data-image="../../../img/GRADUATES/JELLIE.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -603,31 +723,41 @@
                                             <!-- Graduate Card 7 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/6.png" class="card-img-top"
-                                                        alt="Carlos Mendoza" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/JOAN.png" class="card-img-top"
+                                                        alt="Joan M. Pabalan" style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Carlos Mendoza</h5>
-                                                            <span class="badge bg-success">With Honors</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Joan M. Pabalan</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2025-035</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Aesthetic Services Level
-                                                            III
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Sep 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>carlos.mendoza@email.com
+                                                            <i class="bx bx-envelope me-1"></i>joan@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Joan M. Pabalan" data-id="#GRD-2025-035"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Sep 2025" data-email="joan@email.com"
+                                                                data-image="../../../img/GRADUATES/JOAN.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Joan M. Pabalan" data-id="#GRD-2025-035"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Sep 2025" data-email="joan@email.com"
+                                                                data-image="../../../img/GRADUATES/JOAN.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
@@ -637,59 +767,49 @@
                                             <!-- Graduate Card 8 -->
                                             <div class="col">
                                                 <div class="card h-100">
-                                                    <img src="../assets/img/avatars/7.png" class="card-img-top"
-                                                        alt="Luis Torres" style="height: 200px; object-fit: cover;">
+                                                    <img src="../../../img/GRADUATES/JONATHAN.png" class="card-img-top"
+                                                        alt="Jonathan L. Murcia"
+                                                        style="height: 200px; object-fit: cover;">
                                                     <div class="card-body">
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-start mb-2">
-                                                            <h5 class="card-title mb-0">Luis Torres</h5>
-                                                            <span class="badge bg-primary">Regular</span>
-                                                        </div>
+                                                        <h5 class="card-title mb-2">Jonathan L. Murcia</h5>
                                                         <p class="text-muted small mb-2">ID: #GRD-2025-031</p>
                                                         <p class="card-text small mb-2">
-                                                            <i class="bx bx-book-open me-1"></i>Permanent Makeup Tattoo
-                                                            Level III
+                                                            <i class="bx bx-book-open me-1"></i>Beauty Care (Nail Care)
+                                                            NC II
                                                         </p>
                                                         <p class="card-text small mb-2">
                                                             <i class="bx bx-calendar me-1"></i>Graduated: Aug 2025
                                                         </p>
                                                         <p class="card-text small mb-3">
-                                                            <i class="bx bx-envelope me-1"></i>luis.torres@email.com
+                                                            <i class="bx bx-envelope me-1"></i>jonathan@email.com
                                                         </p>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-sm btn-outline-primary flex-fill">
+                                                            <button
+                                                                class="btn btn-sm btn-outline-primary flex-fill view-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#viewGraduateModal"
+                                                                data-name="Jonathan L. Murcia" data-id="#GRD-2025-031"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Aug 2025"
+                                                                data-email="jonathan@email.com"
+                                                                data-image="../../../img/GRADUATES/JONATHAN.png">
                                                                 <i class="bx bx-show"></i> View
                                                             </button>
-                                                            <button class="btn btn-sm btn-primary flex-fill">
-                                                                <i class="bx bx-certificate"></i> Certificate
+                                                            <button
+                                                                class="btn btn-sm btn-outline-secondary flex-fill edit-graduate-btn"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editGraduateModal"
+                                                                data-name="Jonathan L. Murcia" data-id="#GRD-2025-031"
+                                                                data-course="Beauty Care (Nail Care) NC II"
+                                                                data-graduated="Aug 2025"
+                                                                data-email="jonathan@email.com"
+                                                                data-image="../../../img/GRADUATES/JONATHAN.png">
+                                                                <i class="bx bx-edit"></i> Edit
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <!-- Pagination -->
-                                        <div class="d-flex justify-content-between align-items-center mt-4">
-                                            <div class="text-muted">
-                                                Showing 1 to 8 of 700 graduates
-                                            </div>
-                                            <nav aria-label="Page navigation">
-                                                <ul class="pagination mb-0">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                    </li>
-                                                    <li class="page-item active"><a class="page-link" href="#">1</a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">88</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
                                         </div>
                                     </div>
                                 </div>
@@ -725,6 +845,140 @@
     </div>
     <!-- / Layout wrapper -->
 
+    <!-- View Graduate Modal -->
+    <div class="modal fade" id="viewGraduateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Graduate Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modalGraduateImage" src="" alt="Graduate Photo" class="img-fluid"
+                                style="width: 100%; max-width: 400px; height: auto; object-fit: cover; border-radius: 8px;">
+                        </div>
+                        <div class="col-md-6 d-flex flex-column justify-content-center">
+                            <h3 id="modalGraduateName" class="mb-4"
+                                style="color: rgba(255, 255, 255, 0.9); font-weight: 600;"></h3>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold" style="color: rgba(255, 255, 255, 0.7);">Student
+                                    ID:</label>
+                                <p id="modalGraduateId" class="mb-0" style="color: rgba(255, 255, 255, 0.9);"></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold"
+                                    style="color: rgba(255, 255, 255, 0.7);">Graduation Date:</label>
+                                <p id="modalGraduateDate" class="mb-0" style="color: rgba(255, 255, 255, 0.9);"></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold"
+                                    style="color: rgba(255, 255, 255, 0.7);">Course:</label>
+                                <p id="modalGraduateCourse" class="mb-0" style="color: rgba(255, 255, 255, 0.9);"></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold"
+                                    style="color: rgba(255, 255, 255, 0.7);">Email:</label>
+                                <p id="modalGraduateEmail" class="mb-0" style="color: rgba(255, 255, 255, 0.9);"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Graduate Modal -->
+    <div class="modal fade" id="editGraduateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Graduate</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="text-center">
+                                <img id="editGraduateImage" src="" alt="Graduate Photo" class="img-fluid mb-3"
+                                    style="width: 100%; max-width: 400px; height: auto; object-fit: cover; border-radius: 8px;">
+                                <button type="button" class="btn btn-sm btn-outline-primary">
+                                    <i class="bx bx-upload"></i> Change Photo
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <form id="editGraduateForm">
+                                <div class="mb-3">
+                                    <label for="editGraduateName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="editGraduateName" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editGraduateId" class="form-label">Student ID</label>
+                                    <input type="text" class="form-control" id="editGraduateId" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editGraduateCourse" class="form-label">Course</label>
+                                    <select class="form-select" id="editGraduateCourse" required>
+                                        <option value="">Select Course</option>
+                                        <option value="Beauty Care (Nail Care) NC II">Beauty Care (Nail Care) NC II
+                                        </option>
+                                        <option value="Beauty Care (Skin Care) NC II">Beauty Care (Skin Care) NC II
+                                        </option>
+                                        <option value="Trainers Methodology Level I">Trainers Methodology Level I
+                                        </option>
+                                        <option value="Eyelash and Eyebrow Services Level III">Eyelash and Eyebrow
+                                            Services Level III</option>
+                                        <option value="Aesthetic Services Level II">Aesthetic Services Level II</option>
+                                        <option value="Aesthetic Services Level III">Aesthetic Services Level III
+                                        </option>
+                                        <option value="Advanced Skin Care Services Level III">Advanced Skin Care
+                                            Services Level III</option>
+                                        <option value="Permanent Make-Up Tattoo Services Level III">Permanent Make-Up
+                                            Tattoo Services Level III</option>
+                                        <option value="Perform Collagen Induction Therapy & Hair Loss Treatment">Perform
+                                            Collagen Induction Therapy & Hair Loss Treatment</option>
+                                        <option value="Perform Advanced Facial Treatment & Chemical Skin Peeling">
+                                            Perform Advanced Facial Treatment & Chemical Skin Peeling</option>
+                                        <option value="Perform Light Therapy & Heat Therapy">Perform Light Therapy &
+                                            Heat Therapy</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editGraduateDate" class="form-label">Graduation Date</label>
+                                    <input type="text" class="form-control" id="editGraduateDate"
+                                        placeholder="e.g., Jan 2026" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="editGraduateEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="editGraduateEmail" required>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveGraduateBtn">
+                        <i class="bx bx-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Core JS -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>
@@ -734,6 +988,65 @@
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
+
+    <!-- Graduate View Modal Script -->
+    <script>
+        // View Graduate Modal
+        document.querySelectorAll('.view-graduate-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const id = this.getAttribute('data-id');
+                const course = this.getAttribute('data-course');
+                const graduated = this.getAttribute('data-graduated');
+                const email = this.getAttribute('data-email');
+                const image = this.getAttribute('data-image');
+
+                document.getElementById('modalGraduateName').textContent = name;
+                document.getElementById('modalGraduateId').textContent = id;
+                document.getElementById('modalGraduateCourse').textContent = course;
+                document.getElementById('modalGraduateDate').textContent = graduated;
+                document.getElementById('modalGraduateEmail').textContent = email;
+                document.getElementById('modalGraduateImage').src = image;
+            });
+        });
+
+        // Edit Graduate Modal
+        document.querySelectorAll('.edit-graduate-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const id = this.getAttribute('data-id');
+                const course = this.getAttribute('data-course');
+                const graduated = this.getAttribute('data-graduated');
+                const email = this.getAttribute('data-email');
+                const image = this.getAttribute('data-image');
+
+                document.getElementById('editGraduateName').value = name;
+                document.getElementById('editGraduateId').value = id;
+                document.getElementById('editGraduateCourse').value = course;
+                document.getElementById('editGraduateDate').value = graduated;
+                document.getElementById('editGraduateEmail').value = email;
+                document.getElementById('editGraduateImage').src = image;
+            });
+        });
+
+        // Save Graduate Changes
+        document.getElementById('saveGraduateBtn').addEventListener('click', function () {
+            const form = document.getElementById('editGraduateForm');
+            if (form.checkValidity()) {
+                // Here you would typically send the data to your backend
+                alert('Graduate information updated successfully!');
+
+                // Close the modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('editGraduateModal'));
+                modal.hide();
+
+                // Optionally refresh the page or update the card
+                // location.reload();
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
 </body>
 
 </html>
