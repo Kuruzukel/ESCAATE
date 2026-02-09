@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>CAATE | Attendance</title>
+    <title>CAATE | Class Roster</title>
     <meta name="description" content="" />
 
     <!-- Favicon -->
@@ -37,45 +37,52 @@
     <script src="../assets/js/config.js"></script>
 
     <style>
-        .course-selector {
+        .course-card {
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
 
-        .course-selector:hover {
+        .course-card:hover {
             border-color: #3b82f6;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
         }
 
-        .course-selector.active {
-            border-color: #3b82f6;
-            background-color: rgba(59, 130, 246, 0.05);
+        .student-list {
+            display: none;
         }
 
-        .image-preview {
-            max-width: 200px;
-            max-height: 200px;
-            margin-top: 1rem;
-            border-radius: 8px;
+        .student-list.active {
+            display: block;
         }
 
-        .upload-area {
-            border: 2px dashed #3b82f6;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .student-item {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .upload-area:hover {
-            background-color: rgba(59, 130, 246, 0.05);
+        .student-item:last-child {
+            border-bottom: none;
         }
 
-        .upload-area.dragover {
-            background-color: rgba(59, 130, 246, 0.1);
-            border-color: #2563eb;
+        .student-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -115,12 +122,12 @@
                             <div data-i18n="Class Records">Class Records</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
+                            <li class="menu-item active">
                                 <a href="class-roster.html" class="menu-link">
                                     <div data-i18n="Class Roster">Class Roster</div>
                                 </a>
                             </li>
-                            <li class="menu-item active">
+                            <li class="menu-item">
                                 <a href="attendance.html" class="menu-link">
                                     <div data-i18n="Attendance">Attendance</div>
                                 </a>
@@ -212,8 +219,9 @@
                             <div class="nav-item d-flex align-items-center position-relative">
                                 <i class="bx bx-search fs-4 lh-0 position-absolute"
                                     style="left: 12px; z-index: 10;"></i>
-                                <input type="text" class="form-control border-0 shadow-none" placeholder="Search..."
-                                    aria-label="Search..." style="padding-left: 40px;" />
+                                <input type="text" class="form-control border-0 shadow-none"
+                                    placeholder="Search students..." aria-label="Search..."
+                                    style="padding-left: 40px;" />
                             </div>
                         </div>
                         <!-- /Search -->
@@ -281,71 +289,29 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="mb-4">Attendance Record</h4>
+                        <div class="back-btn">
+                            <button class="btn btn-outline-secondary" id="backBtn" style="display: none;">
+                                <i class="bx bx-arrow-back me-2"></i>Back to Courses
+                            </button>
+                        </div>
 
-                        <!-- Course Selection -->
-                        <div class="row mb-4">
-                            <div class="col-12">
-                                <h6 class="mb-3">Select a Course</h6>
-                                <div class="row" id="coursesContainer">
-                                    <!-- Course cards will be generated here -->
-                                </div>
+                        <!-- Courses Selection -->
+                        <div id="coursesView">
+                            <h4 class="mb-4">Select a Course to View Class Roster</h4>
+                            <div class="row" id="coursesContainer">
+                                <!-- Course cards will be generated here -->
                             </div>
                         </div>
 
-                        <!-- Attendance Form -->
-                        <div id="attendanceForm" style="display: none;">
+                        <!-- Student List View -->
+                        <div id="studentListView" style="display: none;">
+                            <h4 class="mb-4" id="courseTitle"></h4>
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="mb-0" id="selectedCourseTitle"></h5>
+                                    <h5 class="mb-0">Enrolled Students</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form id="attendanceFormElement">
-                                        <!-- Date and Time -->
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label class="form-label" for="attendanceDate">Date</label>
-                                                <input type="date" class="form-control" id="attendanceDate" required />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="form-label" for="attendanceTime">Time</label>
-                                                <input type="time" class="form-control" id="attendanceTime" required />
-                                            </div>
-                                        </div>
-
-                                        <!-- Image Upload -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Upload Evidence Image</label>
-                                            <div class="upload-area" id="uploadArea">
-                                                <i class="bx bx-cloud-upload"
-                                                    style="font-size: 2rem; color: #3b82f6;"></i>
-                                                <p class="mt-2 mb-0">Drag and drop your image here or click to select
-                                                </p>
-                                                <small class="text-muted">Supported formats: JPG, PNG, GIF (Max
-                                                    5MB)</small>
-                                                <input type="file" id="imageInput" accept="image/*"
-                                                    style="display: none;" />
-                                            </div>
-                                            <img id="imagePreview" class="image-preview" style="display: none;" />
-                                        </div>
-
-                                        <!-- Notes -->
-                                        <div class="mb-3">
-                                            <label class="form-label" for="notes">Notes (Optional)</label>
-                                            <textarea class="form-control" id="notes" rows="3"
-                                                placeholder="Add any additional notes..."></textarea>
-                                        </div>
-
-                                        <!-- Buttons -->
-                                        <div class="d-flex gap-2">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="bx bx-check me-2"></i>Submit Attendance
-                                            </button>
-                                            <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
-                                                <i class="bx bx-x me-2"></i>Cancel
-                                            </button>
-                                        </div>
-                                    </form>
+                                    <div id="studentsList"></div>
                                 </div>
                             </div>
                         </div>
@@ -382,127 +348,100 @@
     <script src="../assets/js/main.js"></script>
 
     <script>
-        // Sample enrolled courses
+        // Sample enrolled courses data
         const enrolledCourses = [
-            { id: 1, name: 'Beauty Care (Skin Care) NC II' },
-            { id: 2, name: 'Beauty Care (Nail Care) NC II' },
-            { id: 3, name: 'Aesthetic Services Level II' }
+            { id: 1, name: 'Beauty Care (Skin Care) NC II', hours: '307 hours' },
+            { id: 2, name: 'Beauty Care (Nail Care) NC II', hours: '307 hours' },
+            { id: 3, name: 'Aesthetic Services Level II', hours: '264 hours' }
         ];
 
-        let selectedCourseId = null;
+        // Sample students data for each course
+        const courseStudents = {
+            1: [
+                { id: 1, name: 'Maria Santos', initials: 'MS' },
+                { id: 2, name: 'Anna Cruz', initials: 'AC' },
+                { id: 3, name: 'Rosa Garcia', initials: 'RG' },
+                { id: 4, name: 'Elena Lopez', initials: 'EL' },
+                { id: 5, name: 'Sofia Martinez', initials: 'SM' }
+            ],
+            2: [
+                { id: 1, name: 'Maria Santos', initials: 'MS' },
+                { id: 2, name: 'Anna Cruz', initials: 'AC' },
+                { id: 3, name: 'Rosa Garcia', initials: 'RG' }
+            ],
+            3: [
+                { id: 1, name: 'Elena Lopez', initials: 'EL' },
+                { id: 2, name: 'Sofia Martinez', initials: 'SM' },
+                { id: 3, name: 'Maria Santos', initials: 'MS' },
+                { id: 4, name: 'Anna Cruz', initials: 'AC' }
+            ]
+        };
 
-        // Initialize courses
+        // Initialize courses view
         function initializeCourses() {
             const container = document.getElementById('coursesContainer');
             container.innerHTML = '';
 
             enrolledCourses.forEach(course => {
-                const col = document.createElement('div');
-                col.className = 'col-md-6 col-lg-4 mb-3';
-                col.innerHTML = `
-                    <div class="card course-selector" onclick="selectCourse(${course.id}, '${course.name}')">
+                const card = document.createElement('div');
+                card.className = 'col-md-6 col-lg-4 mb-4';
+                card.innerHTML = `
+                    <div class="card course-card" onclick="viewStudents(${course.id}, '${course.name}')">
                         <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <i class="bx bx-book" style="font-size: 1.5rem; color: #3b82f6; margin-right: 1rem;"></i>
-                                <div>
-                                    <h6 class="mb-0">${course.name}</h6>
-                                </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bx bx-book-open" style="font-size: 2rem; color: #3b82f6;"></i>
                             </div>
+                            <h5 class="card-title">${course.name}</h5>
+                            <p class="text-muted mb-0">
+                                <i class="bx bx-time-five me-1"></i>${course.hours}
+                            </p>
                         </div>
                     </div>
                 `;
-                container.appendChild(col);
+                container.appendChild(card);
             });
         }
 
-        // Select course
-        function selectCourse(courseId, courseName) {
-            selectedCourseId = courseId;
-            document.getElementById('selectedCourseTitle').textContent = courseName;
-            document.getElementById('attendanceForm').style.display = 'block';
+        // View students for selected course
+        function viewStudents(courseId, courseName) {
+            document.getElementById('coursesView').style.display = 'none';
+            document.getElementById('studentListView').style.display = 'block';
+            document.getElementById('backBtn').style.display = 'inline-block';
+            document.getElementById('courseTitle').textContent = courseName;
 
-            // Update active state
-            document.querySelectorAll('.course-selector').forEach(el => {
-                el.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
+            const students = courseStudents[courseId] || [];
+            const studentsList = document.getElementById('studentsList');
+            studentsList.innerHTML = '';
 
-            // Scroll to form
-            document.getElementById('attendanceForm').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Image upload handling
-        const uploadArea = document.getElementById('uploadArea');
-        const imageInput = document.getElementById('imageInput');
-        const imagePreview = document.getElementById('imagePreview');
-
-        uploadArea.addEventListener('click', () => imageInput.click());
-
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleImageUpload(files[0]);
-            }
-        });
-
-        imageInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleImageUpload(e.target.files[0]);
-            }
-        });
-
-        function handleImageUpload(file) {
-            if (file.size > 5 * 1024 * 1024) {
-                alert('File size must be less than 5MB');
+            if (students.length === 0) {
+                studentsList.innerHTML = '<p class="text-muted">No students enrolled in this course.</p>';
                 return;
             }
 
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
+            students.forEach((student, index) => {
+                const studentItem = document.createElement('div');
+                studentItem.className = 'student-item';
+                studentItem.innerHTML = `
+                    <div class="student-avatar">${student.initials}</div>
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0">${student.name}</h6>
+                        <small class="text-muted">Student ID: STU-${String(student.id).padStart(4, '0')}</small>
+                    </div>
+                    <span class="badge bg-label-success">Present</span>
+                `;
+                studentsList.appendChild(studentItem);
+            });
         }
 
-        // Form submission
-        document.getElementById('attendanceFormElement').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const date = document.getElementById('attendanceDate').value;
-            const time = document.getElementById('attendanceTime').value;
-            const notes = document.getElementById('notes').value;
+        // Back to courses
+        function backToCourses() {
+            document.getElementById('coursesView').style.display = 'block';
+            document.getElementById('studentListView').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+        }
 
-            if (!date || !time) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            alert(`Attendance submitted for course ID ${selectedCourseId}\nDate: ${date}\nTime: ${time}`);
-            // Reset form
-            document.getElementById('attendanceFormElement').reset();
-            imagePreview.style.display = 'none';
-        });
-
-        // Cancel button
-        document.getElementById('cancelBtn').addEventListener('click', () => {
-            document.getElementById('attendanceForm').style.display = 'none';
-            document.getElementById('attendanceFormElement').reset();
-            imagePreview.style.display = 'none';
-            document.querySelectorAll('.course-selector').forEach(el => {
-                el.classList.remove('active');
-            });
-        });
+        // Event listeners
+        document.getElementById('backBtn').addEventListener('click', backToCourses);
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', initializeCourses);
