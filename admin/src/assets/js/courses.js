@@ -1,4 +1,4 @@
-/* Competencies Page Functionality */
+/* Courses Page Functionality */
 
 document.addEventListener('DOMContentLoaded', function () {
     let currentCourseCard = null;

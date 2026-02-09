@@ -1,4 +1,4 @@
-/* Menu Toggle Script for Schedule Page */
+/* Menu Toggle Script for Attendance Page */
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggleBtn = document.querySelector('.menu-toggle-btn');
     const layoutMenu = document.getElementById('layout-menu');
