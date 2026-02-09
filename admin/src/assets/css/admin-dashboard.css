@@ -1,0 +1,188 @@
+/* Admin Dashboard specific styles */
+
+/* Present status styling - ensure green background with white text */
+.badge.bg-success {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+}
+
+/* Alternative Present status class if needed */
+.badge-present,
+.status-present {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+    padding: 0.35rem 0.65rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Specific styling for attendance table Present status */
+.table .badge.bg-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+/* Target any badge containing "Present" text */
+.badge:has-text("Present"),
+.badge[data-status="present"] {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+}
+
+/* Additional Present status variations */
+.present-status {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    padding: 0.35rem 0.65rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Hover effect for Present status */
+.badge.bg-success:hover,
+.badge-present:hover,
+.present-status:hover {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+}
+
+/* Ensure Present Today card styling */
+.card-body .fw-semibold:contains("Present Today")+.card-title {
+    color: #28a745;
+}
+
+/* Dashboard statistics styling for better visibility */
+.text-success {
+    color: #28a745 !important;
+}
+
+/* Make sure all success badges have consistent green styling */
+.bg-success {
+    background-color: #10b981 !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Course Enrollment Statistics - Make text white */
+.card-header .card-title h5,
+.card-header .card-title small {
+    color: #ffffff !important;
+}
+
+/* Total enrollments number */
+.card-body h2 {
+    color: #ffffff !important;
+}
+
+/* "Total Trainees Enrolled" text */
+.card-body span {
+    color: #ffffff !important;
+}
+
+/* "Top Enrolled Courses" heading */
+.card-body h6.mb-3.text-center {
+    color: #ffffff !important;
+}
+
+/* Course names in the list */
+.card-body ul li .me-2 h6 {
+    color: #ffffff !important;
+}
+
+/* Course hours text */
+.card-body ul li .me-2 small.text-muted {
+    color: #ffffff !important;
+}
+
+/* Enrollment numbers */
+.card-body ul li .user-progress small {
+    color: #ffffff !important;
+}
+
+/* Recent Enrollment Activity section */
+.card-header h5.card-title {
+    color: #ffffff !important;
+}
+
+/* "Live Enrollment Feed" text */
+.card-body p.text-muted.small {
+    color: #ffffff !important;
+}
+
+/* Student names in enrollment activity */
+.card-body ul li .me-2 h6.mb-0 {
+    color: #ffffff !important;
+}
+
+/* Course names under student names */
+.card-body ul li .me-2 small.text-muted {
+    color: #ffffff !important;
+}
+
+/* Tab navigation text */
+.nav-tabs .nav-link {
+    color: #ffffff !important;
+}
+
+/* Active Trainees section */
+.tab-pane .d-flex small.text-muted {
+    color: #ffffff !important;
+}
+
+.tab-pane .d-flex h6 {
+    color: #ffffff !important;
+}
+
+/* "this semester" text */
+.tab-pane .d-flex small.text-muted:last-child {
+    color: #ffffff !important;
+}
+
+/* "New Enrollments This Week" text */
+.d-flex.justify-content-center p {
+    color: #ffffff !important;
+}
+
+/* Weekly comparison text */
+.d-flex.justify-content-center small {
+    color: #ffffff !important;
+}
+
+/* Monthly Trainee Enrollment section title */
+.card-header h5,
+h5.card-header {
+    color: #ffffff !important;
+}
+
+/* Specific targeting for Monthly Trainee Enrollment */
+.card .row .col-md-8 h5.card-header {
+    color: #ffffff !important;
+}
+
+/* Specific styling for Enrolled status badges */
+.badge:contains("Enrolled"),
+.badge[data-status="enrolled"] {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+}
+
+/* Ensure all bg-success badges use the new green color */
+span.badge.bg-success {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+}
+
+/* Target badges with "Present" or "Enrolled" text specifically */
+.badge {
+
+    &:contains("Present"),
+    &:contains("Enrolled") {
+        background-color: #10b981 !important;
+        color: #ffffff !important;
+    }
+}

@@ -54,6 +54,9 @@
     <!-- ESCAATE Custom Theme -->
     <link rel="stylesheet" href="../assets/css/custom-theme.css" />
 
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css" />
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
@@ -920,41 +923,8 @@
     <!-- Page JS -->
     <script src="../assets/js/dashboards-analytics.js"></script>
 
-    <!-- Custom Menu Toggle Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const menuToggleBtn = document.querySelector('.menu-toggle-btn');
-        const layoutMenu = document.getElementById('layout-menu');
-        const layoutOverlay = document.querySelector('.layout-overlay');
-        const layoutContainer = document.querySelector('.layout-container');
+    <!-- Admin Dashboard JS -->
+    <script src="../assets/js/admin-dashboard.js"></script>
+</body>
 
-        if (menuToggleBtn && layoutMenu) {
-          menuToggleBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            layoutMenu.classList.toggle('menu-hidden');
-
-            // Toggle class on layout container to expand content
-            if (layoutContainer) {
-              layoutContainer.classList.toggle('menu-collapsed');
-            }
-          });
-        }
-
-        // Also toggle when clicking the overlay
-        if (layoutOverlay && layoutMenu) {
-          layoutOverlay.addEventListener('click', function () {
-            layoutMenu.classList.toggle('menu-hidden');
-
-            // Toggle class on layout container
-            if (layoutContainer) {
-              layoutContainer.classList.toggle('menu-collapsed');
-            }
-          });
-        }
-      });
-    </script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
 </html>

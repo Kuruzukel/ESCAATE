@@ -37,56 +37,8 @@
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
 
-    <style>
-        /* Responsive navbar collapse styles */
-        @media (max-width: 1199.98px) {
-            .layout-navbar {
-                flex-wrap: wrap;
-            }
-
-            .navbar-collapse {
-                width: 100%;
-                order: 3;
-            }
-
-            .navbar-collapse.show {
-                display: block !important;
-            }
-
-            .navbar-collapse:not(.show) {
-                display: none !important;
-            }
-
-            .navbar-nav-right {
-                flex-direction: column;
-                width: 100%;
-                padding: 1rem 0;
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar-nav .nav-item {
-                width: 100%;
-            }
-
-            .navbar-nav-right .navbar-nav {
-                margin-top: 1rem;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .navbar-collapse {
-                display: flex !important;
-            }
-
-            .navbar-toggler {
-                display: none !important;
-            }
-        }
-    </style>
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
 </head>
 
 <body>
@@ -552,36 +504,8 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
-            const layoutMenu = document.getElementById('layout-menu');
-            const layoutOverlay = document.querySelector('.layout-overlay');
-            const layoutContainer = document.querySelector('.layout-container');
-
-            if (menuToggleBtn && layoutMenu) {
-                menuToggleBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    layoutMenu.classList.toggle('menu-hidden');
-
-                    if (layoutContainer) {
-                        layoutContainer.classList.toggle('menu-collapsed');
-                    }
-                });
-            }
-
-            if (layoutOverlay && layoutMenu) {
-                layoutOverlay.addEventListener('click', function () {
-                    layoutMenu.classList.toggle('menu-hidden');
-
-                    if (layoutContainer) {
-                        layoutContainer.classList.toggle('menu-collapsed');
-                    }
-                });
-            }
-        });
-    </script>
+    <!-- Dashboard JS -->
+    <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>

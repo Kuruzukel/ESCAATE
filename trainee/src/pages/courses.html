@@ -482,63 +482,60 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
-    <!-- Enroll Script -->
-    <script>
-        // Handle enroll button clicks
-        document.querySelectorAll('.enroll-course-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const card = this.closest('.card');
-                const courseTitle = card.querySelector('.card-title').textContent;
-                const courseBadge = card.querySelector('.badge').textContent;
+    <!-- Courses JS -->
+    <script src="../assets/js/courses.js"></script>
+</body>
 
-                // Show confirmation
-                if (confirm(`Do you want to enroll in:\n\n${courseTitle}\n(${courseBadge})`)) {
-                    // Here you would typically send enrollment data to backend
-                    alert('Enrollment request submitted successfully!\n\nYou will be notified once your enrollment is confirmed.');
+</html>t courseBadge = card.querySelector('.badge').textContent;
 
-                    // Optionally disable the button after enrollment
-                    this.disabled = true;
-                    this.innerHTML = '<i class="bx bx-check"></i> Enrolled';
-                    this.classList.remove('btn-primary');
-                    this.classList.add('btn-success');
+// Show confirmation
+if (confirm(`Do you want to enroll in:\n\n${courseTitle}\n(${courseBadge})`)) {
+// Here you would typically send enrollment data to backend
+alert('Enrollment request submitted successfully!\n\nYou will be notified once your enrollment is confirmed.');
+
+// Optionally disable the button after enrollment
+this.disabled = true;
+this.innerHTML = '<i class="bx bx-check"></i> Enrolled';
+this.classList.remove('btn-primary');
+this.classList.add('btn-success');
+}
+});
+});
+</script>
+
+<!-- Menu Toggle Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+        const layoutMenu = document.getElementById('layout-menu');
+        const layoutOverlay = document.querySelector('.layout-overlay');
+        const layoutContainer = document.querySelector('.layout-container');
+
+        if (menuToggleBtn && layoutMenu) {
+            menuToggleBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                layoutMenu.classList.toggle('menu-hidden');
+
+                // Toggle class on layout container to expand content
+                if (layoutContainer) {
+                    layoutContainer.classList.toggle('menu-collapsed');
                 }
             });
-        });
-    </script>
+        }
 
-    <!-- Menu Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
-            const layoutMenu = document.getElementById('layout-menu');
-            const layoutOverlay = document.querySelector('.layout-overlay');
-            const layoutContainer = document.querySelector('.layout-container');
+        // Also toggle when clicking the overlay
+        if (layoutOverlay && layoutMenu) {
+            layoutOverlay.addEventListener('click', function () {
+                layoutMenu.classList.toggle('menu-hidden');
 
-            if (menuToggleBtn && layoutMenu) {
-                menuToggleBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    layoutMenu.classList.toggle('menu-hidden');
-
-                    // Toggle class on layout container to expand content
-                    if (layoutContainer) {
-                        layoutContainer.classList.toggle('menu-collapsed');
-                    }
-                });
-            }
-
-            // Also toggle when clicking the overlay
-            if (layoutOverlay && layoutMenu) {
-                layoutOverlay.addEventListener('click', function () {
-                    layoutMenu.classList.toggle('menu-hidden');
-
-                    // Toggle class on layout container
-                    if (layoutContainer) {
-                        layoutContainer.classList.toggle('menu-collapsed');
-                    }
-                });
-            }
-        });
-    </script>
+                // Toggle class on layout container
+                if (layoutContainer) {
+                    layoutContainer.classList.toggle('menu-collapsed');
+                }
+            });
+        }
+    });
+</script>
 </body>
 
 </html>

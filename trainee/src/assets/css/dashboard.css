@@ -1,0 +1,50 @@
+/* Dashboard specific styles */
+
+/* Responsive navbar collapse styles */
+@media (max-width: 1199.98px) {
+    .layout-navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar-collapse {
+        width: 100%;
+        order: 3;
+    }
+
+    .navbar-collapse.show {
+        display: block !important;
+    }
+
+    .navbar-collapse:not(.show) {
+        display: none !important;
+    }
+
+    .navbar-nav-right {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav-right .navbar-nav {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+}

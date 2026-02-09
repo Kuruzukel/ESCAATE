@@ -1,3 +1,5 @@
+/* Change Password specific JavaScript */
+
 // Toggle password visibility
 function togglePassword(fieldId) {
     const field = document.getElementById(fieldId);
@@ -99,68 +101,98 @@ function validateForm() {
 }
 
 // Event listeners
-document.getElementById('newPassword').addEventListener('input', function () {
-    const password = this.value;
-    if (password) {
-        const { strength } = checkPasswordStrength(password);
-        updateStrengthBar(strength);
-    } else {
-        document.getElementById('strengthBar').className = 'password-strength-bar';
-        document.getElementById('strengthText').textContent = '';
-    }
-    validateForm();
-});
-
-document.getElementById('confirmPassword').addEventListener('input', validateForm);
-document.getElementById('currentPassword').addEventListener('input', validateForm);
-
-// Form submission
-document.getElementById('changePasswordForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const currentPassword = document.getElementById('currentPassword').value;
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-
-    // Hide previous alerts
-    document.getElementById('successAlert').classList.add('d-none');
-    document.getElementById('errorAlert').classList.add('d-none');
-
-    // Validate passwords match
-    if (newPassword !== confirmPassword) {
-        document.getElementById('confirmPasswordError').classList.remove('d-none');
-        document.getElementById('confirmPassword').classList.add('is-invalid');
-        return;
-    }
-
-    // Simulate API call (replace with actual API call)
-    setTimeout(() => {
-        // Simulate success
-        const success = true; // Change to false to test error state
-
-        if (success) {
-            document.getElementById('successAlert').classList.remove('d-none');
-            document.getElementById('changePasswordForm').reset();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('newPassword').addEventListener('input', function () {
+        const password = this.value;
+        if (password) {
+            const { strength } = checkPasswordStrength(password);
+            updateStrengthBar(strength);
+        } else {
             document.getElementById('strengthBar').className = 'password-strength-bar';
             document.getElementById('strengthText').textContent = '';
-            document.getElementById('submitBtn').disabled = true;
-
-            // Reset requirements
-            ['req-length', 'req-uppercase', 'req-lowercase', 'req-number', 'req-special'].forEach(id => {
-                updateRequirement(id, false);
-            });
-
-            // Redirect after 2 seconds
-            setTimeout(() => {
-                window.location.href = 'manage-profile.html';
-            }, 2000);
-        } else {
-            document.getElementById('errorMessage').textContent = 'Current password is incorrect.';
-            document.getElementById('errorAlert').classList.remove('d-none');
-            document.getElementById('currentPassword').classList.add('is-invalid');
-            document.getElementById('currentPasswordError').classList.remove('d-none');
         }
-    }, 500);
-});
+        validateForm();
+    });
 
-console.log('Change Password JS loaded successfully');
+    document.getElementById('confirmPassword').addEventListener('input', validateForm);
+    document.getElementById('currentPassword').addEventListener('input', validateForm);
+
+    // Form submission
+    document.getElementById('changePasswordForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        // Hide previous alerts
+        document.getElementById('successAlert').classList.add('d-none');
+        document.getElementById('errorAlert').classList.add('d-none');
+
+        // Validate passwords match
+        if (newPassword !== confirmPassword) {
+            document.getElementById('confirmPasswordError').classList.remove('d-none');
+            document.getElementById('confirmPassword').classList.add('is-invalid');
+            return;
+        }
+
+        // Simulate API call (replace with actual API call)
+        setTimeout(() => {
+            // Simulate success
+            const success = true; // Change to false to test error state
+
+            if (success) {
+                document.getElementById('successAlert').classList.remove('d-none');
+                document.getElementById('changePasswordForm').reset();
+                document.getElementById('strengthBar').className = 'password-strength-bar';
+                document.getElementById('strengthText').textContent = '';
+                document.getElementById('submitBtn').disabled = true;
+
+                // Reset requirements
+                ['req-length', 'req-uppercase', 'req-lowercase', 'req-number', 'req-special'].forEach(id => {
+                    updateRequirement(id, false);
+                });
+
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'manage-profile.html';
+                }, 2000);
+            } else {
+                document.getElementById('errorMessage').textContent = 'Current password is incorrect.';
+                document.getElementById('errorAlert').classList.remove('d-none');
+                document.getElementById('currentPassword').classList.add('is-invalid');
+                document.getElementById('currentPasswordError').classList.remove('d-none');
+            }
+        }, 500);
+    });
+
+    // Menu Toggle Script
+    const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+    const layoutMenu = document.getElementById('layout-menu');
+    const layoutOverlay = document.querySelector('.layout-overlay');
+    const layoutContainer = document.querySelector('.layout-container');
+
+    if (menuToggleBtn && layoutMenu) {
+        menuToggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            layoutMenu.classList.toggle('menu-hidden');
+
+            // Toggle class on layout container to expand content
+            if (layoutContainer) {
+                layoutContainer.classList.toggle('menu-collapsed');
+            }
+        });
+    }
+
+    // Also toggle when clicking the overlay
+    if (layoutOverlay && layoutMenu) {
+        layoutOverlay.addEventListener('click', function () {
+            layoutMenu.classList.toggle('menu-hidden');
+
+            // Toggle class on layout container
+            if (layoutContainer) {
+                layoutContainer.classList.toggle('menu-collapsed');
+            }
+        });
+    }
+});

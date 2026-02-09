@@ -36,48 +36,8 @@
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="../assets/js/config.js"></script>
 
-    <style>
-        .course-selector {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .course-selector:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-        }
-
-        .course-selector.active {
-            border-color: #3b82f6;
-            background-color: rgba(59, 130, 246, 0.05);
-        }
-
-        .image-preview {
-            max-width: 200px;
-            max-height: 200px;
-            margin-top: 1rem;
-            border-radius: 8px;
-        }
-
-        .upload-area {
-            border: 2px dashed #3b82f6;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .upload-area:hover {
-            background-color: rgba(59, 130, 246, 0.05);
-        }
-
-        .upload-area.dragover {
-            background-color: rgba(59, 130, 246, 0.1);
-            border-color: #2563eb;
-        }
-    </style>
+    <!-- Attendance CSS -->
+    <link rel="stylesheet" href="../assets/css/attendance.css" />
 </head>
 
 <body>
@@ -379,134 +339,11 @@
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../assets/vendor/js/menu.js"></script>
+    <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
-    <script>
-        // Sample enrolled courses
-        const enrolledCourses = [
-            { id: 1, name: 'Beauty Care (Skin Care) NC II' },
-            { id: 2, name: 'Beauty Care (Nail Care) NC II' },
-            { id: 3, name: 'Aesthetic Services Level II' }
-        ];
-
-        let selectedCourseId = null;
-
-        // Initialize courses
-        function initializeCourses() {
-            const container = document.getElementById('coursesContainer');
-            container.innerHTML = '';
-
-            enrolledCourses.forEach(course => {
-                const col = document.createElement('div');
-                col.className = 'col-md-6 col-lg-4 mb-3';
-                col.innerHTML = `
-                    <div class="card course-selector" onclick="selectCourse(${course.id}, '${course.name}')">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <i class="bx bx-book" style="font-size: 1.5rem; color: #3b82f6; margin-right: 1rem;"></i>
-                                <div>
-                                    <h6 class="mb-0">${course.name}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(col);
-            });
-        }
-
-        // Select course
-        function selectCourse(courseId, courseName) {
-            selectedCourseId = courseId;
-            document.getElementById('selectedCourseTitle').textContent = courseName;
-            document.getElementById('attendanceForm').style.display = 'block';
-
-            // Update active state
-            document.querySelectorAll('.course-selector').forEach(el => {
-                el.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-
-            // Scroll to form
-            document.getElementById('attendanceForm').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Image upload handling
-        const uploadArea = document.getElementById('uploadArea');
-        const imageInput = document.getElementById('imageInput');
-        const imagePreview = document.getElementById('imagePreview');
-
-        uploadArea.addEventListener('click', () => imageInput.click());
-
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleImageUpload(files[0]);
-            }
-        });
-
-        imageInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleImageUpload(e.target.files[0]);
-            }
-        });
-
-        function handleImageUpload(file) {
-            if (file.size > 5 * 1024 * 1024) {
-                alert('File size must be less than 5MB');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-
-        // Form submission
-        document.getElementById('attendanceFormElement').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const date = document.getElementById('attendanceDate').value;
-            const time = document.getElementById('attendanceTime').value;
-            const notes = document.getElementById('notes').value;
-
-            if (!date || !time) {
-                alert('Please fill in all required fields');
-                return;
-            }
-
-            alert(`Attendance submitted for course ID ${selectedCourseId}\nDate: ${date}\nTime: ${time}`);
-            // Reset form
-            document.getElementById('attendanceFormElement').reset();
-            imagePreview.style.display = 'none';
-        });
-
-        // Cancel button
-        document.getElementById('cancelBtn').addEventListener('click', () => {
-            document.getElementById('attendanceForm').style.display = 'none';
-            document.getElementById('attendanceFormElement').reset();
-            imagePreview.style.display = 'none';
-            document.querySelectorAll('.course-selector').forEach(el => {
-                el.classList.remove('active');
-            });
-        });
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', initializeCourses);
-    </script>
+    <!-- Attendance JS -->
+    <script src="../assets/js/attendance.js"></script>
 </body>
 
 </html>

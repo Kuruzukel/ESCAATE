@@ -1,0 +1,42 @@
+/* Attendance specific styles */
+
+.course-selector {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.course-selector:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.course-selector.active {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+.upload-area {
+    border: 2px dashed #3b82f6;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.upload-area.dragover {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: #2563eb;
+}

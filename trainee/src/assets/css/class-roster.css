@@ -1,0 +1,172 @@
+/* Class Roster specific styles */
+
+.course-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.course-card:hover {
+    border-color: #5ba3d0;
+    box-shadow: 0 4px 12px rgba(54, 145, 191, 0.2);
+    transform: translateY(-2px);
+}
+
+.course-card.active {
+    border: 3px solid #10b981 !important;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 1), 0 0 10px rgba(16, 185, 129, 0.8), 0 0 10px rgba(5, 150, 105, 0.6), 0 4px 10px rgba(5, 150, 105, 0.4) !important;
+    transform: scale(1.02) !important;
+}
+
+.course-card.active .bx-book-open {
+    color: #10b981 !important;
+}
+
+.course-card.active .card-title {
+    color: #10b981 !important;
+    font-weight: 600 !important;
+}
+
+.course-card.active img {
+    border: 3px solid #10b981 !important;
+}
+
+.course-card.active .bx-time-five {
+    color: #10b981 !important;
+}
+
+.course-card.active .text-muted {
+    color: #10b981 !important;
+}
+
+.student-list {
+    display: none;
+}
+
+.student-list.active {
+    display: block;
+}
+
+.student-item {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.student-item:last-child {
+    border-bottom: none;
+}
+
+.student-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3691bf 0%, #325596 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.back-btn {
+    margin-bottom: 1rem;
+}
+
+/* Badge styling copied from bg-success */
+.badge-present {
+    display: inline-block;
+    padding: 0.52em 0.593em;
+    font-size: 0.8125em;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    --bs-bg-opacity: 1;
+    background-color: #10b981 !important;
+}
+
+/* Present status - using success green color */
+.badge-present[style*="background-color: #3691bf"] {
+    background-color: #10b981 !important;
+}
+
+/* Absent status - using danger red color */
+.badge-present[style*="background-color: #ef4444"] {
+    background-color: rgba(255, 62, 29, 1) !important;
+}
+
+#studentsList {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#studentsList h6,
+#studentsList small {
+    color: white !important;
+}
+
+/* Custom Scrollbar Styling - Matching Admin Dashboard */
+#studentsList::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+#studentsList::-webkit-scrollbar-track {
+    background: rgba(197, 227, 245, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 4px;
+}
+
+#studentsList::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(54, 145, 191, 0.8) 0%, rgba(50, 85, 150, 0.8) 100%);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(22, 56, 86, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#studentsList::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(54, 145, 191, 1) 0%, rgba(50, 85, 150, 1) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(22, 56, 86, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 15px rgba(54, 145, 191, 0.3);
+}
+
+#studentsList::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, rgba(50, 85, 150, 1) 0%, rgba(22, 56, 86, 1) 100%);
+    box-shadow: 0 2px 6px rgba(22, 56, 86, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Firefox Scrollbar */
+#studentsList {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(54, 145, 191, 0.9) rgba(15, 41, 66, 0.2);
+}
+
+/* Danger badge styling for Absent status */
+.badge.bg-danger {
+    --bs-bg-opacity: 1;
+    background-color: rgba(255, 62, 29, var(--bs-bg-opacity)) !important;
+    color: #fff;
+}
+
+/* Success badge styling for Present status */
+.badge.bg-success {
+    --bs-bg-opacity: 1;
+    background-color: #10b981 !important;
+    color: #fff;
+}
