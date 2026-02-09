@@ -523,19 +523,16 @@
                     e.preventDefault();
                     layoutMenu.classList.toggle('menu-hidden');
 
-                    // Toggle class on layout container to expand content
                     if (layoutContainer) {
                         layoutContainer.classList.toggle('menu-collapsed');
                     }
                 });
             }
 
-            // Also toggle when clicking the overlay
             if (layoutOverlay && layoutMenu) {
                 layoutOverlay.addEventListener('click', function () {
                     layoutMenu.classList.toggle('menu-hidden');
 
-                    // Toggle class on layout container
                     if (layoutContainer) {
                         layoutContainer.classList.toggle('menu-collapsed');
                     }
@@ -543,32 +540,6 @@
             }
         });
     </script>
-</body>
-
-</html>
-e.preventDefault();
-layoutMenu.classList.toggle('menu-hidden');
-
-// Toggle class on layout container to expand content
-if (layoutContainer) {
-layoutContainer.classList.toggle('menu-collapsed');
-}
-});
-}
-
-// Also toggle when clicking the overlay
-if (layoutOverlay && layoutMenu) {
-layoutOverlay.addEventListener('click', function () {
-layoutMenu.classList.toggle('menu-hidden');
-
-// Toggle class on layout container
-if (layoutContainer) {
-ist.toggle('menu-collapsed');
-}
-});
-}
-});
-</script>
 </body>
 
 </html>
