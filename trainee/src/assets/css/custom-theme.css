@@ -2187,11 +2187,11 @@ nav.layout-navbar.navbar-detached.container-xxl,
     flex-wrap: nowrap !important;
 }
 
-.navbar-nav-right > .navbar-nav {
+.navbar-nav-right>.navbar-nav {
     flex-shrink: 0 !important;
 }
 
-.navbar-nav-right > ul.navbar-nav {
+.navbar-nav-right>ul.navbar-nav {
     flex-shrink: 0 !important;
     margin-left: auto !important;
 }
@@ -2218,7 +2218,7 @@ nav.layout-navbar.navbar-detached.container-xxl,
     .container-xxl {
         max-width: none !important;
     }
-    
+
     .layout-page .container-xxl {
         max-width: none !important;
     }
@@ -2245,12 +2245,12 @@ nav.layout-navbar.navbar-detached.container-xxl,
     .navbar .navbar-nav.align-items-center {
         max-width: 200px !important;
     }
-    
+
     .navbar .nav-item.position-relative {
         width: 180px !important;
         max-width: 180px !important;
     }
-    
+
     .navbar .nav-item.position-relative .form-control {
         width: 180px !important;
         max-width: 180px !important;
@@ -2262,12 +2262,12 @@ nav.layout-navbar.navbar-detached.container-xxl,
     .navbar .navbar-nav.align-items-center {
         max-width: 180px !important;
     }
-    
+
     .navbar .nav-item.position-relative {
         width: 150px !important;
         max-width: 150px !important;
     }
-    
+
     .navbar .nav-item.position-relative .form-control {
         width: 150px !important;
         max-width: 150px !important;
@@ -2278,12 +2278,12 @@ nav.layout-navbar.navbar-detached.container-xxl,
     .navbar .navbar-nav.align-items-center {
         max-width: 150px !important;
     }
-    
+
     .navbar .nav-item.position-relative {
         width: 120px !important;
         max-width: 120px !important;
     }
-    
+
     .navbar .nav-item.position-relative .form-control {
         width: 120px !important;
         max-width: 120px !important;
