@@ -224,3 +224,39 @@
         min-height: 150px;
     }
 }
+
+/* Custom Scrollbar for Attendance Records Container - Match table-responsive */
+.attendance-records-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(54, 145, 191, 0.9) rgba(15, 41, 66, 0.2);
+    overflow-x: hidden;
+    /* Remove horizontal scroll */
+    overflow-y: auto;
+}
+
+.attendance-records-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.attendance-records-container::-webkit-scrollbar-track {
+    background: rgba(15, 41, 66, 0.2);
+    border-radius: 6px;
+}
+
+.attendance-records-container::-webkit-scrollbar-thumb {
+    background: rgba(54, 145, 191, 0.9);
+    border-radius: 6px;
+    border: 2px solid rgba(15, 41, 66, 0.2);
+}
+
+.attendance-records-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(54, 145, 191, 1);
+}
+
+.attendance-records-container::-webkit-scrollbar-thumb:active {
+    background: rgba(54, 145, 191, 0.8);
+}
+
+.attendance-records-container::-webkit-scrollbar-corner {
+    background: rgba(15, 41, 66, 0.2);
+}
