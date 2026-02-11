@@ -1,5 +1,6 @@
-/* Menu Toggle Script for Schedule Page */
+/* Schedule Page Script */
 document.addEventListener('DOMContentLoaded', function () {
+    // Menu Toggle Functionality
     const menuToggleBtn = document.querySelector('.menu-toggle-btn');
     const layoutMenu = document.getElementById('layout-menu');
     const layoutOverlay = document.querySelector('.layout-overlay');
@@ -27,5 +28,321 @@ document.addEventListener('DOMContentLoaded', function () {
                 layoutContainer.classList.toggle('menu-collapsed');
             }
         });
+    }
+
+    // Initialize Calendar with fallback
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        // Add a loading message
+        calendarEl.innerHTML = '<div class="text-center p-4"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading calendar...</p></div>';
+
+        // Wait a bit for FullCalendar to load
+        setTimeout(function () {
+            try {
+                // Check if FullCalendar is loaded or failed to load
+                if (typeof FullCalendar === 'undefined' || window.FullCalendarLoadFailed) {
+                    console.error('FullCalendar library not loaded or failed to load');
+                    createFallbackCalendar(calendarEl);
+                    return;
+                }
+
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    height: 'auto',
+                    events: getSampleEvents(),
+                    eventClick: function (info) {
+                        showAppointmentDetails(info.event);
+                    },
+                    dateClick: function (info) {
+                        console.log('Date clicked: ' + info.dateStr);
+                    },
+                    eventDidMount: function (info) {
+                        const status = info.event.extendedProps.status;
+                        if (status === 'pending') {
+                            info.el.style.backgroundColor = '#f59e0b';
+                            info.el.style.borderColor = '#f59e0b';
+                        } else if (status === 'confirmed') {
+                            info.el.style.backgroundColor = '#10b981';
+                            info.el.style.borderColor = '#10b981';
+                        } else if (status === 'cancelled') {
+                            info.el.style.backgroundColor = '#ef4444';
+                            info.el.style.borderColor = '#ef4444';
+                            info.el.style.opacity = '0.7';
+                        }
+                    }
+                });
+
+                calendar.render();
+            } catch (error) {
+                console.error('Error initializing calendar:', error);
+                createFallbackCalendar(calendarEl);
+            }
+        }, 1000);
+    }
+
+    // Sample events data
+    function getSampleEvents() {
+        return [
+            {
+                id: '1',
+                title: 'Beauty Care Consultation',
+                start: '2024-02-15T10:00:00',
+                end: '2024-02-15T11:00:00',
+                backgroundColor: '#10b981',
+                borderColor: '#10b981',
+                extendedProps: {
+                    client: 'Maria Santos',
+                    service: 'Beauty Care (Skincare)',
+                    status: 'confirmed',
+                    phone: '+63 912 345 6789'
+                }
+            },
+            {
+                id: '2',
+                title: 'Advanced Skincare Session',
+                start: '2024-02-16T14:00:00',
+                end: '2024-02-16T16:00:00',
+                backgroundColor: '#10b981',
+                borderColor: '#10b981',
+                extendedProps: {
+                    client: 'Ana Cruz',
+                    service: 'Advanced Skincare',
+                    status: 'confirmed',
+                    phone: '+63 917 123 4567'
+                }
+            },
+            {
+                id: '3',
+                title: 'Nail Care Appointment',
+                start: '2024-02-17T09:00:00',
+                end: '2024-02-17T10:30:00',
+                backgroundColor: '#f59e0b',
+                borderColor: '#f59e0b',
+                extendedProps: {
+                    client: 'Lisa Garcia',
+                    service: 'Beauty Care (Nail Care)',
+                    status: 'pending',
+                    phone: '+63 905 987 6543'
+                }
+            },
+            {
+                id: '4',
+                title: 'Aesthetic Services',
+                start: '2024-02-18T13:00:00',
+                end: '2024-02-18T15:00:00',
+                backgroundColor: '#10b981',
+                borderColor: '#10b981',
+                extendedProps: {
+                    client: 'Carmen Reyes',
+                    service: 'Aesthetic Services',
+                    status: 'confirmed',
+                    phone: '+63 920 456 7890'
+                }
+            },
+            {
+                id: '5',
+                title: 'Permanent Makeup Consultation',
+                start: '2024-02-19T11:00:00',
+                end: '2024-02-19T12:00:00',
+                backgroundColor: '#ef4444',
+                borderColor: '#ef4444',
+                extendedProps: {
+                    client: 'Sofia Mendoza',
+                    service: 'Permanent Makeup Tattoo',
+                    status: 'cancelled',
+                    phone: '+63 918 765 4321'
+                }
+            }
+        ];
+    }
+
+    // Fallback calendar function
+    function createFallbackCalendar(calendarEl) {
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+
+        calendarEl.innerHTML = `
+            <div class="fc">
+                <div class="fc-header-toolbar">
+                    <div class="fc-toolbar-chunk">
+                        <button class="fc-button" onclick="alert('Previous month')">‹</button>
+                        <button class="fc-button" onclick="alert('Next month')">›</button>
+                        <button class="fc-button" onclick="alert('Today')">Today</button>
+                    </div>
+                    <div class="fc-toolbar-chunk">
+                        <h2 class="fc-toolbar-title">${getMonthName(currentMonth)} ${currentYear}</h2>
+                    </div>
+                    <div class="fc-toolbar-chunk">
+                        <button class="fc-button fc-button-active">Month</button>
+                        <button class="fc-button">Week</button>
+                        <button class="fc-button">Day</button>
+                    </div>
+                </div>
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="fc-col-header-cell">Sun</th>
+                            <th class="fc-col-header-cell">Mon</th>
+                            <th class="fc-col-header-cell">Tue</th>
+                            <th class="fc-col-header-cell">Wed</th>
+                            <th class="fc-col-header-cell">Thu</th>
+                            <th class="fc-col-header-cell">Fri</th>
+                            <th class="fc-col-header-cell">Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${generateCalendarDays(currentYear, currentMonth)}
+                    </tbody>
+                </table>
+                <div class="mt-3 text-center">
+                    <small class="text-muted">Calendar loaded in fallback mode. Refresh page to try loading full calendar.</small>
+                </div>
+            </div>
+        `;
+    }
+
+    // Helper function to generate calendar days
+    function generateCalendarDays(year, month) {
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        let html = '';
+        let day = 1;
+
+        for (let week = 0; week < 6; week++) {
+            html += '<tr>';
+            for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+                if (week === 0 && dayOfWeek < firstDay) {
+                    html += '<td class="fc-daygrid-day" style="height: 100px;"></td>';
+                } else if (day > daysInMonth) {
+                    html += '<td class="fc-daygrid-day" style="height: 100px;"></td>';
+                } else {
+                    const isToday = day === new Date().getDate() && month === new Date().getMonth() && year === new Date().getFullYear();
+                    const todayClass = isToday ? 'fc-day-today' : '';
+                    html += `<td class="fc-daygrid-day ${todayClass}" style="height: 100px;">
+                        <div class="fc-daygrid-day-number">${day}</div>
+                        ${getFallbackEvents(day)}
+                    </td>`;
+                    day++;
+                }
+            }
+            html += '</tr>';
+            if (day > daysInMonth) break;
+        }
+        return html;
+    }
+
+    // Helper function to get sample events for specific days
+    function getFallbackEvents(day) {
+        const events = {
+            15: '<div class="fc-event" style="background-color: #10b981; border-color: #10b981;">Beauty Care Consultation</div>',
+            16: '<div class="fc-event" style="background-color: #10b981; border-color: #10b981;">Advanced Skincare</div>',
+            17: '<div class="fc-event" style="background-color: #f59e0b; border-color: #f59e0b;">Nail Care</div>',
+            18: '<div class="fc-event" style="background-color: #10b981; border-color: #10b981;">Aesthetic Services</div>',
+            19: '<div class="fc-event" style="background-color: #ef4444; border-color: #ef4444; opacity: 0.7;">Permanent Makeup</div>'
+        };
+        return events[day] || '';
+    }
+
+    // Helper function to get month name
+    function getMonthName(month) {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'];
+        return months[month];
+    }
+
+    // Function to show appointment details in modal
+    function showAppointmentDetails(event) {
+        const modal = document.getElementById('appointmentModal');
+        const modalTitle = document.getElementById('appointmentModalTitle');
+        const modalBody = document.getElementById('appointmentModalBody');
+
+        if (modal && modalTitle && modalBody) {
+            modalTitle.textContent = event.title;
+
+            const startTime = event.start.toLocaleString();
+            const endTime = event.end ? event.end.toLocaleString() : 'N/A';
+            const client = event.extendedProps.client || 'N/A';
+            const service = event.extendedProps.service || 'N/A';
+            const status = event.extendedProps.status || 'N/A';
+            const phone = event.extendedProps.phone || 'N/A';
+
+            modalBody.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Client:</strong><br>
+                        <span>${client}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Service:</strong><br>
+                        <span>${service}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Start Time:</strong><br>
+                        <span>${startTime}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>End Time:</strong><br>
+                        <span>${endTime}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Status:</strong><br>
+                        <span class="badge bg-${getStatusColor(status)}">${status.charAt(0).toUpperCase() + status.slice(1)}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Phone:</strong><br>
+                        <span>${phone}</span>
+                    </div>
+                </div>
+            `;
+
+            // Show the modal
+            try {
+                const bootstrapModal = new bootstrap.Modal(modal);
+                bootstrapModal.show();
+            } catch (error) {
+                console.error('Error showing modal:', error);
+            }
+        }
+    }
+
+    // Helper function to get status color
+    function getStatusColor(status) {
+        switch (status) {
+            case 'confirmed':
+                return 'success';
+            case 'pending':
+                return 'warning';
+            case 'cancelled':
+                return 'danger';
+            default:
+                return 'secondary';
+        }
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById('scheduleSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+            const searchTerm = e.target.value.toLowerCase();
+            console.log('Searching for:', searchTerm);
+        });
+    }
+
+    // Update copyright year
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
     }
 });
