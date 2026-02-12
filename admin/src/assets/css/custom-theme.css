@@ -1716,6 +1716,8 @@ footer span,
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    z-index: 1090 !important;
+    position: relative !important;
 }
 
 .layout-menu-toggle .nav-link {
@@ -1723,16 +1725,20 @@ footer span,
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
 .layout-menu-toggle .nav-link i {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    pointer-events: auto !important;
 }
 
 .layout-menu-toggle {
-    cursor: pointer;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 1090 !important;
 }
 
 /* Layout page expansion when menu is hidden */
