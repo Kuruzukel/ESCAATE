@@ -22,7 +22,8 @@ let menu, animate;
   });
 
   // Initialize menu togglers and bind click on each
-  let menuToggler = document.querySelectorAll('.layout-menu-toggle');
+  // Only target the actual clickable anchor tags, not wrapper divs
+  let menuToggler = document.querySelectorAll('a.layout-menu-toggle, .menu-toggle-btn');
   menuToggler.forEach(item => {
     item.addEventListener('click', event => {
       event.preventDefault();
