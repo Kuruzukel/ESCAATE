@@ -96,12 +96,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // Menu Toggle Script - Works on ALL screen sizes
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+    const menuCloseBtn = document.querySelector('.menu-close-btn');
     const layoutMenu = document.getElementById('layout-menu');
     const layoutOverlay = document.querySelector('.layout-overlay');
 
     // Function to check if we're on a small screen
     function isSmallScreen() {
         return window.innerWidth < 1200;
+    }
+
+    // Function to close menu
+    function closeMenu() {
+        document.documentElement.classList.remove('layout-menu-expanded');
+        document.documentElement.classList.remove('layout-menu-collapsed');
     }
 
     if (menuToggleBtn) {
@@ -119,15 +126,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Close button functionality
+    if (menuCloseBtn) {
+        menuCloseBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
     // Close menu when clicking the overlay
     if (layoutOverlay) {
         layoutOverlay.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
-
-            // Remove both classes to close menu
-            document.documentElement.classList.remove('layout-menu-expanded');
-            document.documentElement.classList.remove('layout-menu-collapsed');
+            closeMenu();
         });
     }
 
