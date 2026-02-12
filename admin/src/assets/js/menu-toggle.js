@@ -1,36 +1,26 @@
 /**
  * Custom Menu Toggle Script
- * Handles hamburger menu toggle functionality for all screen sizes
+ * Handles overlay click to close menu on mobile
  */
 
-document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('.layout-menu-toggle');
-    const layoutMenu = document.getElementById('layout-menu');
-    const layoutContainer = document.querySelector('.layout-container');
-    const layoutOverlay = document.querySelector('.layout-overlay');
+(function () {
+    'use strict';
 
-    // Toggle menu when clicking hamburger icon
-    if (menuToggle && layoutMenu) {
-        menuToggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            layoutMenu.classList.toggle('menu-hidden');
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function () {
+        const layoutOverlay = document.querySelector('.layout-overlay');
 
-            // Toggle class on layout container to expand content
-            if (layoutContainer) {
-                layoutContainer.classList.toggle('menu-collapsed');
-            }
-        });
-    }
+        // Toggle menu when clicking overlay (for mobile/tablet screens)
+        if (layoutOverlay) {
+            layoutOverlay.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-    // Toggle menu when clicking overlay
-    if (layoutOverlay && layoutMenu) {
-        layoutOverlay.addEventListener('click', function () {
-            layoutMenu.classList.toggle('menu-hidden');
-
-            // Toggle class on layout container to expand content
-            if (layoutContainer) {
-                layoutContainer.classList.toggle('menu-collapsed');
-            }
-        });
-    }
-});
+                // Use the Helpers toggleCollapsed method to close menu
+                if (window.Helpers && typeof window.Helpers.toggleCollapsed === 'function') {
+                    window.Helpers.toggleCollapsed();
+                }
+            });
+        }
+    });
+})();

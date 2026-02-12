@@ -12,10 +12,44 @@
   axisColor = config.colors.axisColor;
   borderColor = config.colors.borderColor;
 
+  // Defer chart initialization to improve initial page load
+  function initializeCharts() {
+    // Use requestAnimationFrame to batch chart rendering
+    requestAnimationFrame(() => {
+      initTotalRevenueChart();
+    });
+
+    requestAnimationFrame(() => {
+      initGrowthChart();
+    });
+
+    requestAnimationFrame(() => {
+      initProfileReportChart();
+    });
+
+    requestAnimationFrame(() => {
+      initOrderStatisticsChart();
+    });
+
+    requestAnimationFrame(() => {
+      initWelcomeStatisticsChart();
+    });
+
+    requestAnimationFrame(() => {
+      initIncomeChart();
+    });
+
+    requestAnimationFrame(() => {
+      initWeeklyExpensesChart();
+    });
+  }
+
   // Total Revenue Report Chart - Bar Chart
-  // --------------------------------------------------------------------
-  const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
-    totalRevenueChartOptions = {
+  function initTotalRevenueChart() {
+    const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
+    if (!totalRevenueChartEl) return;
+
+    const totalRevenueChartOptions = {
       series: [
         {
           name: '2021',
@@ -30,7 +64,15 @@
         height: 300,
         stacked: true,
         type: 'bar',
-        toolbar: { show: false }
+        toolbar: { show: false },
+        animations: {
+          enabled: true,
+          speed: 400,
+          animateGradually: {
+            enabled: true,
+            delay: 50
+          }
+        }
       },
       plotOptions: {
         bar: {
@@ -269,20 +311,26 @@
         }
       }
     };
-  if (typeof totalRevenueChartEl !== undefined && totalRevenueChartEl !== null) {
+
     const totalRevenueChart = new ApexCharts(totalRevenueChartEl, totalRevenueChartOptions);
     totalRevenueChart.render();
   }
 
   // Growth Chart - Radial Bar Chart
-  // --------------------------------------------------------------------
-  const growthChartEl = document.querySelector('#growthChart'),
-    growthChartOptions = {
+  function initGrowthChart() {
+    const growthChartEl = document.querySelector('#growthChart');
+    if (!growthChartEl) return;
+
+    const growthChartOptions = {
       series: [78],
       labels: ['Growth'],
       chart: {
         height: 240,
-        type: 'radialBar'
+        type: 'radialBar',
+        animations: {
+          enabled: true,
+          speed: 400
+        }
       },
       plotOptions: {
         radialBar: {
@@ -350,18 +398,19 @@
         }
       }
     };
-  if (typeof growthChartEl !== undefined && growthChartEl !== null) {
+
     const growthChart = new ApexCharts(growthChartEl, growthChartOptions);
     growthChart.render();
   }
 
   // Profit Report Line Chart
-  // --------------------------------------------------------------------
-  const profileReportChartEl = document.querySelector('#profileReportChart'),
-    profileReportChartConfig = {
+  function initProfileReportChart() {
+    const profileReportChartEl = document.querySelector('#profileReportChart');
+    if (!profileReportChartEl) return;
+
+    const profileReportChartConfig = {
       chart: {
         height: 80,
-        // width: 175,
         type: 'line',
         toolbar: {
           show: false
@@ -376,6 +425,10 @@
         },
         sparkline: {
           enabled: true
+        },
+        animations: {
+          enabled: true,
+          speed: 400
         }
       },
       grid: {
@@ -413,19 +466,25 @@
         show: false
       }
     };
-  if (typeof profileReportChartEl !== undefined && profileReportChartEl !== null) {
+
     const profileReportChart = new ApexCharts(profileReportChartEl, profileReportChartConfig);
     profileReportChart.render();
   }
 
   // Order Statistics Chart
-  // --------------------------------------------------------------------
-  const chartOrderStatistics = document.querySelector('#orderStatisticsChart'),
-    orderChartConfig = {
+  function initOrderStatisticsChart() {
+    const chartOrderStatistics = document.querySelector('#orderStatisticsChart');
+    if (!chartOrderStatistics) return;
+
+    const orderChartConfig = {
       chart: {
         height: 165,
         width: 130,
-        type: 'donut'
+        type: 'donut',
+        animations: {
+          enabled: true,
+          speed: 400
+        }
       },
       labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
       series: [85, 15, 50, 50],
@@ -483,19 +542,25 @@
         }
       }
     };
-  if (typeof chartOrderStatistics !== undefined && chartOrderStatistics !== null) {
+
     const statisticsChart = new ApexCharts(chartOrderStatistics, orderChartConfig);
     statisticsChart.render();
   }
 
   // Welcome Statistics Chart
-  // --------------------------------------------------------------------
-  const chartWelcomeStatistics = document.querySelector('#welcomeStatisticsChart'),
-    welcomeChartConfig = {
+  function initWelcomeStatisticsChart() {
+    const chartWelcomeStatistics = document.querySelector('#welcomeStatisticsChart');
+    if (!chartWelcomeStatistics) return;
+
+    const welcomeChartConfig = {
       chart: {
         height: 165,
         width: 130,
-        type: 'donut'
+        type: 'donut',
+        animations: {
+          enabled: true,
+          speed: 400
+        }
       },
       labels: ['Enrolled', 'Pending', 'Completed'],
       series: [72, 18, 10],
@@ -553,15 +618,17 @@
         }
       }
     };
-  if (typeof chartWelcomeStatistics !== undefined && chartWelcomeStatistics !== null) {
+
     const welcomeChart = new ApexCharts(chartWelcomeStatistics, welcomeChartConfig);
     welcomeChart.render();
   }
 
   // Income Chart - Area chart
-  // --------------------------------------------------------------------
-  const incomeChartEl = document.querySelector('#incomeChart'),
-    incomeChartConfig = {
+  function initIncomeChart() {
+    const incomeChartEl = document.querySelector('#incomeChart');
+    if (!incomeChartEl) return;
+
+    const incomeChartConfig = {
       series: [
         {
           data: [24, 21, 30, 22, 42, 26, 35, 29]
@@ -574,7 +641,11 @@
         toolbar: {
           show: false
         },
-        type: 'area'
+        type: 'area',
+        animations: {
+          enabled: true,
+          speed: 400
+        }
       },
       dataLabels: {
         enabled: false
@@ -652,20 +723,26 @@
         tickAmount: 4
       }
     };
-  if (typeof incomeChartEl !== undefined && incomeChartEl !== null) {
+
     const incomeChart = new ApexCharts(incomeChartEl, incomeChartConfig);
     incomeChart.render();
   }
 
   // Expenses Mini Chart - Radial Chart
-  // --------------------------------------------------------------------
-  const weeklyExpensesEl = document.querySelector('#expensesOfWeek'),
-    weeklyExpensesConfig = {
+  function initWeeklyExpensesChart() {
+    const weeklyExpensesEl = document.querySelector('#expensesOfWeek');
+    if (!weeklyExpensesEl) return;
+
+    const weeklyExpensesConfig = {
       series: [65],
       chart: {
         width: 60,
         height: 60,
-        type: 'radialBar'
+        type: 'radialBar',
+        animations: {
+          enabled: true,
+          speed: 400
+        }
       },
       plotOptions: {
         radialBar: {
@@ -725,8 +802,16 @@
         }
       }
     };
-  if (typeof weeklyExpensesEl !== undefined && weeklyExpensesEl !== null) {
+
     const weeklyExpenses = new ApexCharts(weeklyExpensesEl, weeklyExpensesConfig);
     weeklyExpenses.render();
+  }
+
+  // Initialize all charts after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCharts);
+  } else {
+    // DOM is already ready, defer initialization slightly
+    setTimeout(initializeCharts, 100);
   }
 })();

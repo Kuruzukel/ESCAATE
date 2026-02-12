@@ -1207,8 +1207,6 @@ footer span,
 .layout-container.menu-collapsed .layout-navbar {
     left: 0 !important;
     width: auto !important;
-    margin-left: 1.625rem !important;
-    margin-right: 1.625rem !important;
     max-width: none !important;
 }
 

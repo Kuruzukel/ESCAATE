@@ -47,6 +47,45 @@
     // Store the support flag globally
     window.supportsPassiveEvents = supportsPassive;
 
+    // Batch DOM reads and writes to prevent forced reflows
+    const rafScheduler = {
+        reads: [],
+        writes: [],
+        scheduled: false,
+
+        scheduleRead: function (callback) {
+            this.reads.push(callback);
+            this.schedule();
+        },
+
+        scheduleWrite: function (callback) {
+            this.writes.push(callback);
+            this.schedule();
+        },
+
+        schedule: function () {
+            if (this.scheduled) return;
+            this.scheduled = true;
+
+            requestAnimationFrame(() => {
+                // Execute all reads first
+                const reads = this.reads.slice();
+                this.reads = [];
+                reads.forEach(fn => fn());
+
+                // Then execute all writes
+                const writes = this.writes.slice();
+                this.writes = [];
+                writes.forEach(fn => fn());
+
+                this.scheduled = false;
+            });
+        }
+    };
+
+    // Make scheduler available globally
+    window.rafScheduler = rafScheduler;
+
     // Optimize scroll performance
     if (supportsPassive) {
         // Add passive listeners for common scroll events
@@ -77,32 +116,54 @@
         };
     }
 
+    // Throttle function for performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function () {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    // Make utilities available globally
+    window.debounce = debounce;
+    window.throttle = throttle;
+
     // Optimize resize events
     let resizeTimer;
-    window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            // Trigger any resize-dependent code here
-            const event = new Event('optimizedResize');
-            window.dispatchEvent(event);
-        }, 250);
-    }, { passive: true });
+    window.addEventListener('resize', throttle(function () {
+        // Trigger any resize-dependent code here
+        const event = new Event('optimizedResize');
+        window.dispatchEvent(event);
+    }, 250), { passive: true });
 
     // Optimize scroll events
-    let scrollTimer;
-    window.addEventListener('scroll', function () {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function () {
-            // Trigger any scroll-dependent code here
-            const event = new Event('optimizedScroll');
-            window.dispatchEvent(event);
-        }, 100);
-    }, { passive: true });
+    window.addEventListener('scroll', throttle(function () {
+        // Trigger any scroll-dependent code here
+        const event = new Event('optimizedScroll');
+        window.dispatchEvent(event);
+    }, 100), { passive: true });
 
 })();
 
 // Additional performance optimizations
 document.addEventListener('DOMContentLoaded', function () {
+    // Use requestAnimationFrame for layout-dependent operations
+    requestAnimationFrame(() => {
+        // Batch any initial layout calculations here
+        const layoutMenu = document.getElementById('layout-menu');
+        if (layoutMenu) {
+            // Cache layout properties to avoid repeated reflows
+            layoutMenu.dataset.cachedHeight = layoutMenu.offsetHeight;
+            layoutMenu.dataset.cachedWidth = layoutMenu.offsetWidth;
+        }
+    });
+
     // Lazy load images if any
     const images = document.querySelectorAll('img[data-src]');
     if ('IntersectionObserver' in window) {
@@ -148,4 +209,34 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         document.head.appendChild(style);
     }
+
+    // Optimize font loading
+    if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+        });
+    }
+
+    // Use CSS containment for better performance
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.style.contain = 'layout style paint';
+    });
 });
+
+// Prevent layout thrashing during animations
+if (window.requestIdleCallback) {
+    requestIdleCallback(() => {
+        // Perform non-critical work during idle time
+        const nonCriticalElements = document.querySelectorAll('[data-lazy-init]');
+        nonCriticalElements.forEach(el => {
+            // Initialize non-critical components
+            if (el.dataset.lazyInit) {
+                const initFn = window[el.dataset.lazyInit];
+                if (typeof initFn === 'function') {
+                    initFn(el);
+                }
+            }
+        });
+    });
+}
