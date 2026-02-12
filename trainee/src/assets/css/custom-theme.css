@@ -53,6 +53,20 @@
     --bs-light-rgb: 232, 244, 252;
 }
 
+/* Performance Optimizations */
+/* Use will-change for animated elements */
+.layout-menu,
+.layout-overlay {
+    will-change: transform, opacity;
+}
+
+/* Optimize rendering with GPU acceleration */
+.layout-menu,
+.layout-overlay,
+.menu-inner {
+    transform: translateZ(0);
+}
+
 /* Primary Button Styles */
 .btn-primary {
     background-color: var(--primary-blue) !important;
@@ -1264,15 +1278,28 @@ footer span,
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1050;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    z-index: 1099;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    display: none;
+    cursor: pointer;
 }
 
-.layout-menu:not(.menu-hidden)~.layout-overlay {
-    opacity: 1;
-    pointer-events: auto;
+/* Prevent overlay from affecting menu appearance */
+.layout-overlay:hover {
+    /* No hover effects on overlay */
+}
+
+/* Show overlay when menu is expanded on small screens */
+@media (max-width: 1199.98px) {
+    .layout-menu-expanded .layout-overlay {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 /* Adjust layout page when menu is hidden */
