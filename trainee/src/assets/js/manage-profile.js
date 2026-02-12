@@ -465,39 +465,10 @@ window.ProfileManager = {
     showNotification,
     loadProfileData
 };
-// Menu toggle functionality (extracted from HTML)
-function initializeMenuToggle() {
-    const menuToggleBtn = document.querySelector('.menu-toggle-btn');
-    const layoutMenu = document.getElementById('layout-menu');
-    const layoutOverlay = document.querySelector('.layout-overlay');
-    const layoutContainer = document.querySelector('.layout-container');
 
-    if (menuToggleBtn && layoutMenu) {
-        menuToggleBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            layoutMenu.classList.toggle('menu-hidden');
+// Menu toggle is handled by main.js - no need to duplicate here
 
-            // Toggle class on layout container to expand content
-            if (layoutContainer) {
-                layoutContainer.classList.toggle('menu-collapsed');
-            }
-        });
-    }
-
-    // Also toggle when clicking the overlay
-    if (layoutOverlay && layoutMenu) {
-        layoutOverlay.addEventListener('click', function () {
-            layoutMenu.classList.toggle('menu-hidden');
-
-            // Toggle class on layout container
-            if (layoutContainer) {
-                layoutContainer.classList.toggle('menu-collapsed');
-            }
-        });
-    }
-}
-
-// Initialize menu toggle when DOM is loaded
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    initializeMenuToggle();
+    // Manage profile specific initialization can go here
 });

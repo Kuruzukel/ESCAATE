@@ -1,41 +1,111 @@
 /* Dashboard specific styles */
 
-/* Responsive navbar collapse styles */
+/* Responsive navbar adjustments */
+@media (max-width: 1199px) {
+    .navbar .navbar-nav.align-items-center {
+        max-width: 200px !important;
+    }
+
+    .navbar .nav-item.position-relative {
+        width: 180px !important;
+        max-width: 180px !important;
+    }
+
+    .navbar .nav-item.position-relative .form-control {
+        width: 180px !important;
+        max-width: 180px !important;
+        min-width: 120px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar .navbar-nav.align-items-center {
+        max-width: 180px !important;
+    }
+
+    .navbar .nav-item.position-relative {
+        width: 150px !important;
+        max-width: 150px !important;
+    }
+
+    .navbar .nav-item.position-relative .form-control {
+        width: 150px !important;
+        max-width: 150px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar .navbar-nav.align-items-center {
+        max-width: 150px !important;
+    }
+
+    .navbar .nav-item.position-relative {
+        width: 120px !important;
+        max-width: 120px !important;
+    }
+
+    .navbar .nav-item.position-relative .form-control {
+        width: 120px !important;
+        max-width: 120px !important;
+    }
+}
+
+/* Ensure navbar maintains proper spacing on all screen sizes */
 @media (max-width: 1199.98px) {
     .layout-navbar {
-        flex-wrap: wrap;
+        margin-left: 1.625rem !important;
+        margin-right: 1.625rem !important;
     }
 
-    .navbar-collapse {
-        width: 100%;
-        order: 3;
+    /* Automatically hide/close the sidebar menu by default */
+    .layout-menu {
+        transform: translateX(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
     }
 
-    .navbar-collapse.show {
-        display: block !important;
+    /* Show menu when expanded */
+    .layout-menu-expanded .layout-menu {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
     }
 
-    .navbar-collapse:not(.show) {
-        display: none !important;
+    /* Expand layout page to full width when sidebar is hidden */
+    .layout-page {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        width: 100% !important;
     }
 
-    .navbar-nav-right {
-        flex-direction: column;
-        width: 100%;
-        padding: 1rem 0;
+    /* Adjust layout container */
+    .layout-container {
+        padding-left: 0 !important;
     }
 
-    .navbar-nav {
-        flex-direction: column;
-        width: 100%;
+    /* Fix navbar positioning - remove extra left margin */
+    .layout-navbar {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        left: 0 !important;
+        width: calc(100% - 2rem) !important;
+        max-width: none !important;
     }
 
-    .navbar-nav .nav-item {
-        width: 100%;
+    /* Ensure navbar container spans properly */
+    .layout-navbar .container-xxl {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
+}
 
-    .navbar-nav-right .navbar-nav {
-        margin-top: 1rem;
+/* When menu is hidden on mobile, ensure navbar has proper margins */
+@media (max-width: 991.98px) {
+    .layout-menu.menu-hidden~.layout-page .layout-navbar {
+        margin-left: 1.625rem !important;
+        margin-right: 1.625rem !important;
     }
 }
 

@@ -131,7 +131,6 @@ function initializeCourses() {
 
 // View students for selected course
 function viewStudents(courseId, courseName, cardElement) {
-    console.log('viewStudents called for course:', courseId, 'element:', cardElement);
     selectedCourseId = courseId;
 
     // Update active card styling
@@ -199,8 +198,6 @@ function viewStudents(courseId, courseName, cardElement) {
         if (hoursText) {
             hoursText.style.color = '#10b981';
         }
-
-        console.log('Added active class and green inline styles to card');
     }
 
     const students = courseStudents[courseId] || [];
@@ -239,7 +236,6 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         const firstCard = document.querySelector('.course-card');
         if (firstCard) {
-            console.log('Setting first card as active');
             firstCard.classList.add('active');
             viewStudents(1, enrolledCourses[0].name, firstCard);
         }
