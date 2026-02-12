@@ -1331,6 +1331,12 @@ footer span,
     pointer-events: none;
     transition: opacity 0.3s ease;
     display: none;
+    cursor: pointer;
+}
+
+/* Prevent overlay from affecting menu appearance */
+.layout-overlay:hover {
+    /* No hover effects on overlay */
 }
 
 /* Show overlay when menu is expanded on small screens */
@@ -1342,10 +1348,11 @@ footer span,
     }
 }
 
-.layout-menu:not(.menu-hidden)~.layout-overlay {
+/* Remove this rule that was causing issues */
+/* .layout-menu:not(.menu-hidden)~.layout-overlay {
     opacity: 1;
     pointer-events: auto;
-}
+} */
 
 /* Adjust layout page when menu is hidden */
 .layout-menu.menu-hidden~.layout-page {
@@ -1569,6 +1576,77 @@ footer span,
     }
 }
 
+
+/* ========================================
+   PREVENT MENU AUTO-COLLAPSE
+   ======================================== */
+
+/* Override the theme's auto-collapse behavior - always show menu text */
+@media (min-width: 1200px) {
+
+    /* Force menu to stay expanded */
+    html.layout-menu-collapsed .layout-menu,
+    .layout-menu-collapsed .layout-menu {
+        width: 15rem !important;
+    }
+
+    /* Always show menu text - override collapsed state */
+    html.layout-menu-collapsed:not(.layout-menu-hover) .layout-menu .menu-item .menu-link>div,
+    html.layout-menu-collapsed:not(.layout-menu-hover) .layout-menu .menu-item .menu-link>span,
+    .layout-menu-collapsed:not(.layout-menu-hover) .layout-menu .menu-item .menu-link>div,
+    .layout-menu-collapsed:not(.layout-menu-hover) .layout-menu .menu-item .menu-link>span {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        width: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Keep app brand text visible */
+    html.layout-menu-collapsed .layout-menu .app-brand-text,
+    .layout-menu-collapsed .layout-menu .app-brand-text {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        width: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Prevent menu from shrinking */
+    html.layout-menu-collapsed .layout-menu .app-brand,
+    .layout-menu-collapsed .layout-menu .app-brand {
+        width: 100% !important;
+    }
+
+    /* Force menu links to show full content */
+    html.layout-menu-collapsed .layout-menu .menu-link,
+    .layout-menu-collapsed .layout-menu .menu-link {
+        width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Ensure menu inner container stays full width */
+    html.layout-menu-collapsed .layout-menu .menu-inner,
+    .layout-menu-collapsed .layout-menu .menu-inner {
+        width: 100% !important;
+    }
+
+    /* Keep submenu text visible */
+    html.layout-menu-collapsed .layout-menu .menu-sub .menu-link,
+    .layout-menu-collapsed .layout-menu .menu-sub .menu-link {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Prevent text from being hidden */
+    html.layout-menu-collapsed .layout-menu .menu-item>.menu-link>div,
+    .layout-menu-collapsed .layout-menu .menu-item>.menu-link>div {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: inline-block !important;
+    }
+}
 
 /* ========================================
    CUSTOM MENU TOGGLE STYLES

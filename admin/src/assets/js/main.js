@@ -113,6 +113,66 @@ let menu, animate;
 
   // If current layout is vertical and current window screen is > small
 
-  // Auto update menu collapsed/expanded based on the themeConfig
-  window.Helpers.setCollapsed(true, false);
+  // Keep menu expanded by default (changed from true to false)
+  window.Helpers.setCollapsed(false, false);
+})();
+
+
+/**
+ * Menu Close Button Handler
+ * Handles the close button functionality for mobile sidebar
+ */
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuCloseBtn = document.querySelector('.menu-close-btn');
+    const layoutOverlay = document.querySelector('.layout-overlay');
+
+    // Function to check if we're on a small screen
+    function isSmallScreen() {
+      return window.innerWidth < 1200;
+    }
+
+    // Function to close menu
+    function closeMenu() {
+      document.documentElement.classList.remove('layout-menu-expanded');
+      document.documentElement.classList.remove('layout-menu-collapsed');
+    }
+
+    // Close button functionality
+    if (menuCloseBtn) {
+      menuCloseBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenu();
+      });
+    }
+
+    // Enhanced overlay click handler
+    if (layoutOverlay) {
+      layoutOverlay.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeMenu();
+      });
+    }
+
+    // Handle window resize - adjust classes appropriately
+    function handleResize() {
+      if (isSmallScreen()) {
+        // On small screens, remove collapsed class
+        document.documentElement.classList.remove('layout-menu-collapsed');
+      } else {
+        // On large screens, remove expanded class
+        document.documentElement.classList.remove('layout-menu-expanded');
+      }
+    }
+
+    // Listen for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Initial check
+    handleResize();
+  });
 })();

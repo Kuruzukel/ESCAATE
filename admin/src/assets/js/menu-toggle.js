@@ -1,6 +1,7 @@
 /**
  * Custom Menu Toggle Script
  * Handles menu toggle on ALL screen sizes
+ * Works across all admin pages
  */
 
 (function () {
@@ -10,10 +11,17 @@
     document.addEventListener('DOMContentLoaded', function () {
         const layoutOverlay = document.querySelector('.layout-overlay');
         const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+        const menuCloseBtn = document.querySelector('.menu-close-btn');
 
         // Function to check if we're on a small screen
         function isSmallScreen() {
             return window.innerWidth < 1200;
+        }
+
+        // Function to close menu
+        function closeMenu() {
+            document.documentElement.classList.remove('layout-menu-expanded');
+            document.documentElement.classList.remove('layout-menu-collapsed');
         }
 
         // Toggle menu when clicking the hamburger button
@@ -32,15 +40,21 @@
             });
         }
 
+        // Close button functionality
+        if (menuCloseBtn) {
+            menuCloseBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+
         // Close menu when clicking overlay
         if (layoutOverlay) {
             layoutOverlay.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-
-                // Remove both classes to close menu
-                document.documentElement.classList.remove('layout-menu-expanded');
-                document.documentElement.classList.remove('layout-menu-collapsed');
+                closeMenu();
             });
         }
 
