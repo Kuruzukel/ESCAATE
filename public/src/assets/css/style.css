@@ -2153,6 +2153,10 @@ h6 {
     flex-wrap: wrap;
   }
 
+  .carousel-dots {
+    display: none;
+  }
+
   .services-cta {
     flex-direction: column;
   }

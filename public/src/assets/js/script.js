@@ -76,24 +76,47 @@ window.addEventListener("scroll", () => {
 const carousel = document.getElementById("coursesCarousel");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
-const dots = document.querySelectorAll(".carousel-dot");
+const dotsContainer = document.getElementById("carouselDots");
 
 let currentIndex = 0;
 const cardWidth = 285; // card width - updated to match CSS
 const gap = 24; // 1.5rem = 24px gap
 const totalCourses = 10;
 
-// Define cards per page: Page 1 = 4 cards, Page 2 = 3 cards, Page 3 = 3 cards
-const cardsPerPage = [4, 3, 3];
-const maxIndex = cardsPerPage.length - 1;
+// Calculate how many cards fit in the viewport
+function getCardsPerView() {
+  const containerWidth = carousel.offsetWidth;
+  const cardsPerView = Math.floor((containerWidth + gap) / (cardWidth + gap));
+  return Math.max(1, cardsPerView); // At least 1 card
+}
+
+// Calculate total pages needed based on cards per view
+function getTotalPages() {
+  const cardsPerView = getCardsPerView();
+  return Math.ceil(totalCourses / cardsPerView);
+}
+
+// Generate dots dynamically based on total pages
+function generateDots() {
+  const totalPages = getTotalPages();
+  dotsContainer.innerHTML = '';
+
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    if (i === 0) dot.classList.add('active');
+    dot.setAttribute('data-index', i);
+    dot.addEventListener('click', () => {
+      currentIndex = i;
+      updateCarousel();
+    });
+    dotsContainer.appendChild(dot);
+  }
+}
 
 function getScrollAmount(pageIndex) {
-  let scrollAmount = 0;
-  for (let i = 0; i < pageIndex; i++) {
-    // For each previous page, scroll past all cards and their gaps
-    // Page has N cards, which means N-1 gaps between them, plus 1 gap after the last card
-    scrollAmount += (cardsPerPage[i] * (cardWidth + gap));
-  }
+  const cardsPerView = getCardsPerView();
+  const scrollAmount = pageIndex * cardsPerView * (cardWidth + gap);
   return scrollAmount;
 }
 
@@ -104,6 +127,7 @@ function updateCarousel() {
     behavior: "smooth",
   });
 
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
   dots.forEach((dot, index) => {
     dot.classList.toggle("active", index === currentIndex);
   });
@@ -115,16 +139,13 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
+  const maxIndex = getTotalPages() - 1;
   currentIndex = Math.min(maxIndex, currentIndex + 1);
   updateCarousel();
 });
 
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    currentIndex = index;
-    updateCarousel();
-  });
-});
+// Initialize dots on page load
+generateDots();
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -141,6 +162,7 @@ carousel.addEventListener("touchend", (e) => {
 function handleSwipe() {
   const swipeThreshold = 50;
   const diff = touchStartX - touchEndX;
+  const maxIndex = getTotalPages() - 1;
 
   if (Math.abs(diff) > swipeThreshold) {
     if (diff > 0) {
@@ -287,6 +309,7 @@ window.addEventListener("resize", () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
     currentIndex = 0;
+    generateDots(); // Regenerate dots based on new screen size
     updateCarousel();
   }, 250);
 });
