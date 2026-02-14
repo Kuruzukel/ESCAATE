@@ -146,10 +146,23 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: black;
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: linear-gradient(145deg, #3691bf 0%, #325596 50%, #3a6385 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    line-height: 1.4;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    text-transform: uppercase;
     white-space: nowrap;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 4px rgba(54, 145, 191, 0.12)) drop-shadow(0 4px 8px rgba(50, 85, 150, 0.08));
+    text-shadow:
+        1px 1px 0 rgba(54, 145, 191, 0.3),
+        2px 2px 0 rgba(50, 85, 150, 0.2),
+        3px 3px 0 rgba(22, 56, 86, 0.1);
 }
 
 /* Download Brochure Button Override */
