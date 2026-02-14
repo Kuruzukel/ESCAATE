@@ -252,6 +252,7 @@ h6 {
   background: var(--primary-blue);
   color: var(--white);
   border-color: var(--primary-blue);
+  transform: scale(1.05);
 }
 
 .btn-outline-light {
@@ -264,6 +265,7 @@ h6 {
   background: var(--white);
   color: var(--dark-azure);
   border-color: var(--white);
+  transform: scale(1.05);
 }
 
 .navbar {
@@ -1667,28 +1669,38 @@ h6 {
     min-height: auto;
   }
 
+  .hero-logos {
+    gap: 1.5rem;
+    padding: 3rem;
+  }
+
   .hero-logo.caate-logo {
-    width: 130px;
-    padding: 10px;
+    width: 180px;
   }
 
   .hero-logo.tesda-logo {
-    width: 130px;
-    padding: 15px;
+    width: 180px;
+    padding: 30px;
   }
 
   .hero-title {
     font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .hero-stats {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
+  }
+
+  .hero-buttons {
+    margin-bottom: 2rem;
   }
 
   .stat-item {
@@ -1740,6 +1752,33 @@ h6 {
     font-size: 1.5rem;
     letter-spacing: 5px;
   }
+
+  .hero-logos {
+    gap: 1.25rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-logo.caate-logo {
+    width: 180px;
+  }
+
+  .hero-logo.tesda-logo {
+    width: 180px;
+    padding: 30px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.3rem;
+  }
+
+  .hero-buttons {
+    margin-bottom: 1.5rem;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -1757,26 +1796,25 @@ h6 {
   }
 
   .hero-logos {
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 1rem 1.5rem;
   }
 
   .hero-logo.caate-logo {
-    width: 100px;
-    padding: 8px;
+    width: 150px;
   }
 
   .hero-logo.tesda-logo {
-    width: 100px;
-    padding: 12px;
+    width: 150px;
+    padding: 30px;
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .hero-description {
-    font-size: 0.9375rem;
+    font-size: 1.1rem;
   }
 
   .hero-buttons {
@@ -1811,18 +1849,18 @@ h6 {
   }
 
   .hero-logos {
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero-logo.caate-logo {
-    width: 90px;
-    padding: 6px;
+    width: 120px;
+    padding: 8px;
   }
 
   .hero-logo.tesda-logo {
-    width: 90px;
-    padding: 10px;
+    width: 120px;
+    padding: 15px;
   }
 
   .hero-title {
