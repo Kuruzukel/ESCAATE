@@ -147,7 +147,7 @@ div {
   border-radius: 50%;
   filter: blur(60px);
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 .orb-1 {
@@ -1103,7 +1103,7 @@ h6 {
       transparent 1px,
       transparent 50px);
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;
 }
 
 .courses .container {
@@ -1122,6 +1122,7 @@ h6 {
   padding: 0;
   overflow: hidden;
   transform: scaleY(-1);
+  z-index: 1;
 }
 
 .main-courses-upper-curl svg {
